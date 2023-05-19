@@ -1,0 +1,24 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+.userCard{
+    width: 250px;
+    padding: 25px;
+    border: solid;
+}
+.userCard h2{
+    font-family: sans-serif;
+}
+.userCard p{
+    font-family: sans-serif;
+    color: lightgray;
+}
+section{
+    width: 1200px;
+    justify-content: space-between;
+}
+.userCard img{
+    width: 150px;
+}

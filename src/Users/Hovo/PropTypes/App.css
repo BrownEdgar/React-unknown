@@ -1,0 +1,38 @@
+body{
+
+    background-color: #292727;
+}
+ul{
+    list-style: none;
+}
+ul li{
+    font-weight: 800;
+    padding-top: 15px;
+    color: #ffffff;
+}
+.card-list {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    box-shadow: -1px 10px 5px 0px rgba(0,0,0,0.75);
+    background: linear-gradient(45deg, #181717, #b9b9b5);
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    padding: 5px;
+  }
+  
+  .card-title {
+    text-align: center;
+    color: #000000;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  

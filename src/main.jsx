@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './Users/Edgar/workWIthImage/App'
+// import App from './Users/Edgar/workWIthImage/App'
+import App from './Users/Gor/App'
 
 
 

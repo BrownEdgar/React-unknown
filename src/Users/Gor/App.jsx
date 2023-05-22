@@ -32,7 +32,7 @@ return(
       users.map(elem=>{
         return(
           <div className='item' key={elem.id}>
-            <img src={elem.image}></img>
+            <img src={elem.image} alt={elem.title}></img>
             <p className='h1'>{elem.title}</p>
             <p>{elem.text}</p>
             <button>Read More</button>

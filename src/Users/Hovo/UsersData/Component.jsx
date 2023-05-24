@@ -10,7 +10,7 @@ export default function Component({ user, showDescription }) {
           <img src={user.image} alt={user.title} className="user-image" />
           <h2 className="user-title">{user.title}</h2>
           <p className="user-description">
-            {user.isShow ? user.desc : user.desc.slice(0, 90) + '...'}
+            {user.isShow ? user.desc : user.desc?.slice(0, 90) + '...'}
           </p>
           <button onClick={() => showDescription(user.id)}>
             {user.isShow ? 'Hide More' : 'Read More'}
@@ -31,4 +31,5 @@ Component.propTypes = {
       isShow: PropTypes.bool.isRequired,
     })
   ),
+	showDescription: PropTypes.func.isRequired
 };

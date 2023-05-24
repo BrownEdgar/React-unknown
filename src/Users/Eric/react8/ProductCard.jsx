@@ -10,14 +10,14 @@ export default function ProductCard({title, description, image}){
     )
 }
 
-ProductCard.PropTypes = {
+ProductCard.propTypes = {
     products: PropTypes.arrayOf(
         PropTypes.exact(
             {
                 id: PropTypes.number.isRequired,
                 title: PropTypes.string.isRequired,
                 description: PropTypes.string.isRequired,
-                // image: PropTypes.image.isRequired
+                image: PropTypes.string.isRequired
             }
         )
     )

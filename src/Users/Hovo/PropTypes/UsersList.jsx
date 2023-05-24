@@ -45,7 +45,6 @@ UsersList.propTypes = {
         name: PropTypes.string.isRequired,
         catchPhrase: PropTypes.string.isRequired,
         bs: PropTypes.string.isRequired,
-				
       })
     })
   )

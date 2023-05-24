@@ -1,0 +1,45 @@
+.Todo {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__Card {
+        width: calc(33.33% - 20px);
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+        text-align: center;
+        border-radius: 15px;
+    }
+
+    &__Info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    Button {
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    &__Deleted {
+        display: flex;
+        justify-content: space-around;
+        padding-top: 40px;
+    }
+
+    h1 {
+        color: red;
+        padding-bottom: 20px;
+    }
+    
+    &__Title{
+      font-size: 20px;
+      font-weight: 800;
+    }
+}
+

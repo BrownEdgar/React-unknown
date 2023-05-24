@@ -1,0 +1,22 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+.productCard{
+    width: 300px;
+
+}
+.productCard img{
+    width: 300px;
+    height: 220px;
+}
+.productCard p{
+    font-family: sans-serif;
+    color: lightgray;
+}
+section{
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-around;
+}

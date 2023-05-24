@@ -1,0 +1,45 @@
+.dark {
+    background-color: #333;
+    color: #fff;
+    transition: 0.5s;
+}
+
+.dark-animated {
+    background-color: #333;
+    color: #fff;
+    animation: darkAnimation 1s ease infinite;
+}
+
+.light {
+    background-color: #fff;
+    color: #333;
+}
+
+.warn {
+    background-color: #ff0000;
+    color: #fff;
+}
+
+.sm {
+    font-size: 14px;
+}
+
+.md {
+    font-size: 16px;
+}
+
+.lg {
+    font-size: 18px;
+}
+
+@keyframes darkAnimation {
+    0% {
+        transform: translateY(-3px);
+    }
+    50% {
+        transform: translateY(3px);
+    }
+    100% {
+        transform: translateY(-3px);
+    }
+}

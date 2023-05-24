@@ -1,24 +1,25 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
+import './Users.css'
+import userImg from './userImg.png'
 
-function Component({ data }) {
+export default function Users({ users }) {
 	return (
-		<ul className='user_div'>
-			{data.map((elem) => {
+		<section>
+			{users.map(user => {
 				return (
-					<li key={elem.id} className='card'>
-						<p>Name : <span className='name'>{elem.name}</span></p>
-						<p>Username : <span className='username'>{elem.username}</span></p>
-						<p>Email : <span className='email'>{elem.email}</span></p>
-					</li>
-				);
+					<div key={user.id} className="userCard">
+						<img src={userImg} />
+						<h2>{user.name}</h2>
+						<p>{user.email}</p>
+					</div>
+				)
 			})}
-		</ul>
-	);
+		</section>
+	)
 }
 
-Component.propTypes = {
-	data: PropTypes.arrayOf(
+Users.propTypes = {
+	users: PropTypes.arrayOf(
 		PropTypes.exact(
 			{
 				id: PropTypes.number.isRequired,
@@ -34,7 +35,7 @@ Component.propTypes = {
 						geo: PropTypes.exact(
 							{
 								lat: PropTypes.string.isRequired,
-								lng: PropTypes.string.isRequired,
+								lng: PropTypes.string.isRequired
 							}
 						)
 					}
@@ -45,12 +46,11 @@ Component.propTypes = {
 					{
 						name: PropTypes.string.isRequired,
 						catchPhrase: PropTypes.string.isRequired,
-						bs: PropTypes.string.isRequired,
+						bs: PropTypes.string.isRequired
 					}
 				)
+
 			}
 		)
 	)
 }
-
-export default Component

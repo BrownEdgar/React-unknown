@@ -2,20 +2,50 @@ import './App.css'
 import axios from 'axios'
 import {useState, useEffect} from 'react'
 import Component from './Component'
-
-
+import "./Product.scss"
 
 function App() {
-	const [data, setData] = useState([])
-
-	useEffect(() => {
-		axios.get('https://jsonplaceholder.typicode.com/users').then(res => setData(res.data))
-	}, [])
-
+	const arr = [
+		{
+			id: 1,
+			image : "https://images.unsplash.com/photo-1684482570533-b97679dd0705?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60",
+			title: "BETTER CHEMISTRY",
+			description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque necessitatibus dolorem dicta perferendis assumenda facere",
+		},
+		{
+			id: 2,
+			image : "https://images.unsplash.com/photo-1682687221073-53ad74c2cad7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+			title: "BETTER PRACTICES",
+			description: "Amet consectetur, adipisicing elit. Ab, magni. Nisi, maxime hic. Consequuntur vel architecto, minus non odit mollitia",
+		},
+		{
+			id: 3,
+			image: "https://images.unsplash.com/photo-1682685797795-5640f369a70a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80",
+			title: "INDUSTRY COLABORATION",
+			description: "Inventore sit id unde magnam itaque nihil amet consectetur quas molestiae sequi provident possimus, hic error non quod, odit eaque",
+		}
+	]
+	
 	return(
-		<Component data={data}/>
+		<div className='Product'>
+			{
+				arr.map(elem => {
+					return <div key={elem.id} className='Product__div'>
+						<img src={elem.image} alt="" />
+						<div className='Product__div__info'>
+							<h2>{elem.title}</h2>
+							<p>{elem.description}</p>
+							<p className='Product__div__info__last-p'>Read more</p>
+						</div>
+					</div>
+				})
+			}
+		</div>
 	)
 }
+
+
+
 export default App
 
 // function App() {
@@ -97,5 +127,16 @@ export default App
 // 		</div>
 // 	)
 // }
+//////////////////////////////////////
 
+// function App() {
+// 	const [data, setData] = useState([])
 
+// 	useEffect(() => {
+// 		axios.get('https://jsonplaceholder.typicode.com/users').then(res => setData(res.data))
+// 	}, [])
+
+// 	return(
+// 		<Component data={data}/>
+// 	)
+// }

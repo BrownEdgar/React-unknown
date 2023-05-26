@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> d30dfa90e7154207ae76c07b3e46c61de1863124
 import s from './Button.module.css'
 import PropTypes from "prop-types";
 
@@ -21,5 +24,7 @@ Button.defaultProps = {
 Button.propTypes = {
     variant: PropTypes.oneOf(["dark", "light", "warn","dark-animated"]),
     children: PropTypes.element,
+    title:PropTypes.string,
+    size: PropTypes.oneOf(["sm", "md", "lg"]),
     clicked: PropTypes.func
 }

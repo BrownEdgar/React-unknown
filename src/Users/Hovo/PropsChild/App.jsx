@@ -12,27 +12,29 @@ export default function App() {
 	const [selectId, setSelectId] = useState();
 
 
-	const clicked = (id) => {
-		setSelectId(id);
-		setIsOpen(!isOpen);
-	}
+  const clicked = (id) => {
+    setSelectId(id);
+    setIsOpen(!isOpen);
+  }
 
-	const deleteAccount = () => {
-		if (selectId) {
-			const updatedData = data.filter(user => user.id !== selectId);
-			setData(updatedData);
-		}
-		setIsOpen(!isOpen);
-	}
+  const deleteAccount = () => {
+    if (selectId) {
+      const updatedData = data.filter(user => user.id !== selectId);
+      setData(updatedData);
+    }
+    setIsOpen(!isOpen);
+  }
 
-	useEffect(() => {
-		axios('https://jsonplaceholder.typicode.com/todos', {
-			params: {
-				_limit: 12,
-			}
-		})
-			.then(res => setData(res.data))
-	}, [])
+  useEffect(() => {
+    axios('https://jsonplaceholder.typicode.com/todos', {
+      params: {
+        _limit: 12,
+      }
+    })
+    .then(res => setData(res.data))
+  }, [])
+  
+
 
 	return (
 		<div className="Todo">

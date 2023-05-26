@@ -2,9 +2,6 @@
 
 *{
 	margin: 0;
-	padding:10px;
-	border: 2px solid teal;
-
 	box-sizing:border-box;
 	font-family: 'Outfit', sans-serif;
 }

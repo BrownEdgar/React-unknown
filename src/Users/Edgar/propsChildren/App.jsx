@@ -6,6 +6,7 @@ export default function App() {
 	const [isOpen, setIsOpen] = useState(false)
 	const [id, setId] = useState(2)
 	const handleClick = () => {
+		console.log('ok')
 		setIsOpen(!isOpen)
 	}
 	return (

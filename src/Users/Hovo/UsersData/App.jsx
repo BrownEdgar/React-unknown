@@ -9,7 +9,7 @@ export default function App() {
   const showDescription = (id) => {
     const showDesc = user.map(elem => {
       if (elem.id === id) {
-        return { ...elem, isShow: !elem.isShow };
+        return { ...elem, isShow: !elem.isShow};
       }
       return elem;
     });

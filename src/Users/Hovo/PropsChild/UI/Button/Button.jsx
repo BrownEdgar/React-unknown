@@ -1,4 +1,3 @@
-import React from 'react';
 import s from './Button.module.css'
 import PropTypes from "prop-types";
 
@@ -21,5 +20,7 @@ Button.defaultProps = {
 Button.propTypes = {
     variant: PropTypes.oneOf(["dark", "light", "warn","dark-animated"]),
     children: PropTypes.element,
+    title:PropTypes.string,
+    size: PropTypes.oneOf(["sm", "md", "lg"]),
     clicked: PropTypes.func
 }

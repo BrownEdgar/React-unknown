@@ -15,7 +15,7 @@ export default function App() {
   const clicked = (id) => {
     setSelectId(id);
     setIsOpen(!isOpen);
-  };
+  }
 
   const deleteAccount = () => {
     if (selectId) {
@@ -23,7 +23,7 @@ export default function App() {
       setData(updatedData);
     }
     setIsOpen(!isOpen);
-  };
+  }
 
   useEffect(() => {
     axios('https://jsonplaceholder.typicode.com/todos', {
@@ -32,7 +32,7 @@ export default function App() {
       }
     })
     .then(res => setData(res.data))
-  }, []);
+  }, [])
   
   return (
     <div className="Todo">

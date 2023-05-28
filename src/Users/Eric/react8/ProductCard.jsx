@@ -10,7 +10,7 @@ export default function ProductCard({title, description, image}){
     )
 }
 
-ProductCard.PropTypes = {
+ProductCard.propTypes = {
     products: PropTypes.arrayOf(
         PropTypes.exact(
             {

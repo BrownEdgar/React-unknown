@@ -15,12 +15,6 @@ function App() {
     }
     getData();
 
-    axios('https://jsonplaceholder.typicode.com/todos', {
-      params: {
-        _limit: 8,
-      }
-    })
-      .then(res => setData(res.data))
   }, []);
 
   const handleDelete = (itemId) => {

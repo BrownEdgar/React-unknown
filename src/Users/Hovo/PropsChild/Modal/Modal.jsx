@@ -1,12 +1,12 @@
 import './Modal.scss'
 
- export default function Modal({children}) {
+export default function Modal({ children }) {
 
-        return (
-            <div className='Modal'>
-                <div className='Modal__Content'>
-                    {children}
-                </div>
-            </div>
-        );
-    };
+	return (
+		<div className='Modal'>
+			<div className='Modal__Content'>
+				{children}
+			</div>
+		</div>
+	);
+};

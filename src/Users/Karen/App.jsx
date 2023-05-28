@@ -1,8 +1,6 @@
-import './App.css'
-import axios from 'axios'
-import {useState, useEffect} from 'react'
-import Component from './Component'
+
 import "./Product.scss"
+
 
 function App() {
 	const arr = [

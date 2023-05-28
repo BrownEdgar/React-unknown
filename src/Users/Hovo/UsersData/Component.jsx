@@ -2,12 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default function Component({ user, showDescription }) {
-
   return (
     <div id="item">
       {user.map(user => (
         <div key={user.id} className="user-card">
-          <img src={user.image} alt={user.title} className="user-image" />
+          <img src={user.image} alt={user.title} className="user-image"/>
           <h2 className="user-title">{user.title}</h2>
           <p className="user-description">
             {user.isShow ? user.desc : user?.desc?.slice(0, 90) + '...'}
@@ -31,4 +30,5 @@ Component.propTypes = {
       isShow: PropTypes.bool.isRequired,
     })
   ),
+	showDescription: PropTypes.func.isRequired
 };

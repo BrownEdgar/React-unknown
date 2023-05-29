@@ -7,9 +7,9 @@ import './App.scss'
 
 
 export default function App() {
-  const [data, setData] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectId, setSelectId] = useState();
+	const [data, setData] = useState([]);
+	const [isOpen, setIsOpen] = useState(false);
+	const [selectId, setSelectId] = useState();
 
 
   const clicked = (id) => {
@@ -34,32 +34,34 @@ export default function App() {
     .then(res => setData(res.data))
   }, [])
   
-  return (
-    <div className="Todo">
 
-      <Component data={data} clicked={clicked} />
 
-      {isOpen && (
-        <Modal>
-          <h1>Warning</h1>
-          <p>Your account will be permanently deleted</p>
-          <div className="Todo__Deleted">
-            <Button
-              title="Stay With Us 😊"
-              variant="dark-animated"
-              size="lg"
-              border="bordered"
-              clicked={clicked}
-            />
-            <Button
-              title="Delete Account"
-              variant="warn"
-              size="lg"
-              clicked={deleteAccount}
-            />
-          </div>
-        </Modal>
-      )}
-    </div>
-  );
+	return (
+		<div className="Todo">
+
+			<Component data={data} clicked={clicked} />
+
+			{isOpen && (
+				<Modal>
+					<h1>Warning</h1>
+					<p>Your account will be permanently deleted</p>
+					<div className="Todo__Deleted">
+						<Button
+							title="Stay With Us 😊"
+							variant="dark-animated"
+							size="lg"
+							border="bordered"
+							clicked={clicked}
+						/>
+						<Button
+							title="Delete Account"
+							variant="warn"
+							size="lg"
+							clicked={deleteAccount}
+						/>
+					</div>
+				</Modal>
+			)}
+		</div>
+	);
 }

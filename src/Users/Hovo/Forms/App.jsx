@@ -5,8 +5,6 @@ import "./App.scss"
 export default function App() {
 	
   const [users, setUsers] = useState([])
-  const [lang, setLang] = useState([])
-
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -25,13 +23,13 @@ export default function App() {
       return alert("This email is already registered")
     }
 
-    setLang([...lang, languages.value])
+  
     setUsers([...users, user])
     e.target.reset();
   }
   
   const langLimit = (value) => {
-    if(lang.filter((elem) => elem === value).length === 1){ 
+		if (users.filter((user) => user.languages === value).length === 1){ 
       return true
     }
   }

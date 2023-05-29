@@ -9,7 +9,7 @@ export default function MyForm({ handleSubmit, allFunc , emailFunc}) {
 			</div>
 			<div>
 				<label htmlFor="lastname" >Lastname</label>
-				<input type="text" id='lastname'/>
+				<input type="text" id='lastname' />
 			</div>
             <div>
 				<label htmlFor="email" >Email</label>

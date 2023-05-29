@@ -3,18 +3,23 @@ import Form from './Form'
 import "../../Edgar/Forms/App.scss"
 
 export default function App() {
-    const [users, setUsers] = useState([])
+	const [users, setUsers] = useState([])
 	const [reactCount, setReactCount] = useState(0)
 	const [disable, setDisable] = useState(false)
 
-	const handleSubmit = (e) => { 
+	const handleSubmit = (e) => {
 		e.preventDefault()
 
 		const { languages, username, lastname, email } = e.target.elements;
-		if(users.find(user => email.value === user.email)) return
-		if(languages.value == 'react'){setReactCount(reactCount +1)}
-		if(reactCount == 5){setDisable(true)}
-		console.log(reactCount);
+		const isEmailExist = users.find(user => email.value === user.email);
+		if (isEmailExist) return;
+		if (languages.value == 'react') {
+			setReactCount(reactCount + 1)
+		}
+		if (reactCount + 1 == 5) {
+			setDisable(true)
+		}
+
 		const user = {
 			id: new Date().getTime(),
 			languages: languages.value,
@@ -29,7 +34,7 @@ export default function App() {
 	return (
 		<div>
 			<h1>Welcome to <span>SMARTCODE</span></h1>
-			<Form handleSubmit={handleSubmit} disable={disable}/>
+			<Form handleSubmit={handleSubmit} disable={disable} />
 		</div>
 	)
 }

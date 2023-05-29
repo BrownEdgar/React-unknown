@@ -1,34 +1,52 @@
 import React, { useState } from 'react'
-import MyForm from './MyForm'
+import data from './data.json'
 
-import "./App.scss"
+import './App.scss'
+import MyForm from './MyForm'
+import Users from './Users'
 
 export default function App() {
-	const [users, setUsers] = useState([])
+	const [users, setUsers] = useState(data)
 
-	const handleSubmit = (e) => { 
-		e.preventDefault()
+	const handleSubmit = (e) => {
+		e.preventDefault();
 
-		const { languages, username, lastname } = e.target.elements;
-		const user = {
-			id: new Date().getTime(),
-			languages: languages.value,
-			username: username.value,
-			lastname: lastname.value,
-			registredDate: new Date()
+		const {
+			username,
+			lastname,
+			email,
+			cities,
+			female,
+			male,
+		} = e.target;
+	
+		const newUser = {
+			id: Date.now(),
+			first_name: username.value,
+			last_name: lastname.value,
+			email: email.value,
+			gender: (female.checked && female.value) 
+				|| (male.checked && male.value),
+			ip_address: cities.value,
 		}
-
-		checkEmail()
-		setUsers([...users, user])
-		e.target.reset();
+		setUsers([...users,newUser]);
+		e.target.reset()
 	}
+
+	const handleDelete = (id) => { 
+		const filtered = users.filter(elem =>elem.id !== id);
+		setUsers(filtered)
+	}
+
 	return (
-		<div>
-			<h1>Welcome to <span>SMARTCODE</span></h1>
-			<MyForm handleSubmit={handleSubmit}/>
-				<pre>
-					{JSON.stringify(users, null, 3)}
-				</pre>
+		<div className='wrapper'>
+			<header></header>
+			<div className="wrapper-form">
+				<MyForm handleSubmit={handleSubmit} />
+			</div>
+			<div className="wrapper-table">
+				<Users users={users} handleDelete={handleDelete}/>
+			</div>
 		</div>
 	)
 }

@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> d30dfa90e7154207ae76c07b3e46c61de1863124
 import s from './Button.module.css'
 import PropTypes from "prop-types";
 

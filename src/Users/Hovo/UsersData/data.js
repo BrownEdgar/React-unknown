@@ -2,7 +2,7 @@ import img1 from './Images/img1.jpg';
 import img3 from './Images/img2.jpg';
 import img2 from './Images/img3.jpg';
 
- const users = [{
+ export const users = [{
     id: 1,
     title: 'Sunny Sunday',
     desc: `"Beautiful Sunday" was released by Penny Farthing Records, 

@@ -1,17 +1,17 @@
-import React from 'react'
-
-export default function MyForm({ handleSubmit }) {
-	return (
-		<form onSubmit={handleSubmit}>
-			<div>
-				<label htmlFor="username" >Username</label>
-				<input type="text" id='username' />
-			</div>
-			<div>
+import React from "react";
+ 
+export default function MyForm({ handleSubmit }){
+    return (
+        <form onSubmit={handleSubmit}>
+            <div>
+                <label htmlFor="username">Username</label>
+                <input type="text" id="username"/>
+            </div>
+            <div>
 				<label htmlFor="lastname" >Lastname</label>
 				<input type="text" id='lastname' />
 			</div>
-			<div>z
+			<div>
 				<label htmlFor="email" >email</label>
 				<input type="email" id='email' />
 			</div>
@@ -38,6 +38,6 @@ export default function MyForm({ handleSubmit }) {
 			<div>
 				<input type="submit" value='register' />
 			</div>
-		</form>
-	)
-}
+        </form>
+    )
+ }

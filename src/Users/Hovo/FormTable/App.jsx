@@ -52,7 +52,7 @@ export default function App() {
 	  }
 
   const filteredGender = (gender) => {
-    const fill = users.filter(user => user.gender === gender);
+    const fill = data.filter(user => user.gender === gender);
     setUsers(fill)
   }
 

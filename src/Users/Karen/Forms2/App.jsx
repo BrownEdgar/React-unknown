@@ -7,11 +7,14 @@ import './App.scss'
 
 export default function App() {
 	const [users, setUsers] = useState(data)
-    const [del, setDell] = useState(true)
+	const [del, setDell] = useState(true)
+	const [genderType, setGenderType] = useState('')
+
+
+
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-
 		const {
 			username,
 			lastname,
@@ -20,66 +23,63 @@ export default function App() {
 			female,
 			male,
 		} = e.target;
-	
+
 		const newUser = {
 			id: Date.now(),
 			first_name: username.value,
 			last_name: lastname.value,
 			email: email.value,
-			gender: (female.checked && female.value) 
+			gender: (female.checked && female.value)
 				|| (male.checked && male.value),
 			ip_address: cities.value,
 		}
-		setUsers([...users,newUser]);
+		setUsers([...users, newUser]);
 		e.target.reset()
 	}
 
-	const handleDelete = (id) => { 
+	const handleDelete = (id) => {
 		const filtered = users.filter(elem => elem.id !== id);
 		setUsers(filtered)
 	}
 
-    const toSortFunc = (id) => {
-        let sort ;
-        switch(id) {
-            case 1:
-                 sort = users.toSorted((a, b) => (a.first_name > b.first_name) ? 1 : -1)
-              break;
-            case 2:
-                 sort = users.toSorted((a, b) => (a.last_name > b.last_name) ? 1 : -1)
-              break;
-              case 3:
-                 sort = users.toSorted((a, b) => (a.email > b.email) ? 1 : -1)
-              break;
-              case 4:
-                 sort = users.toSorted((a, b) => (a.ip_address > b.ip_address) ? 1 : -1)
-              break;
-          }        
-          setUsers(sort)
-    }
+	const toSortFunc = (field) => {
+		const sorted = users.toSorted((a, b) => {
+			return a[field] > b[field] ? 1 : -1
+		})
 
-    const clearAllFunc = () => {
-        const event = !del;
-        setUsers(event ? data : []);
-        setDell(event)
-    }
+		setUsers(sorted)
+	}
 
-    const handleFemail = (par) => {
-        const result2 = data.filter(element => element.gender === par);
-        setUsers(result2)
-     }
+	const clearAllFunc = () => {
+		const event = !del;
+		setUsers(event ? data : []);
+		setDell(event)
+	}
+
+	const handleFemail = () => {
+		
+		if (genderType) {
+			return users.filter(element => element.gender === genderType)
+		}
+		return users;
+	}
+
 
 	return (
 		<div className='wrapper'>
 			<header>
-                <button className='cleare_but' onClick={clearAllFunc}>{del ? "Clear all" : "To Return"}</button>
-                <span className='span_user'>Users Count : <span className='span_count'>{users.length}</span></span>
-            </header>
+				<button className='cleare_but' onClick={clearAllFunc}>{del ? "Clear all" : "To Return"}</button>
+				<span className='span_user'>Users Count : <span className='span_count'>{users.length}</span></span>
+			</header>
 			<div className="wrapper-form">
 				<MyForm handleSubmit={handleSubmit} />
 			</div>
 			<div className="wrapper-table">
-				<Users users={users} handleDelete={handleDelete} toSortFunc={toSortFunc} handleFemail={handleFemail}/>
+				<Users 
+				users={handleFemail()} 
+				handleDelete={handleDelete} 
+				toSortFunc={toSortFunc}
+				setGenderType={setGenderType} />
 			</div>
 		</div>
 	)

@@ -8,11 +8,13 @@ export default function Users({ users, handleDelete, sortData }) {
 			<thead>
 				<tr>
 					<th >N</th>
-					<th>first name <span  onClick={() => sortData('first_name')}><GoArrowSmallUp /></span></th>
-					<th>last name <span  onClick={() => sortData('last_name')}><GoArrowSmallUp /></span></th>
-					<th>email <span  onClick={() => sortData('email')}><GoArrowSmallUp /></span></th>
+					<th>first name <span className='icon' onClick={() => sortData('first_name')}><GoArrowSmallUp /></span></th>
+					<th>last name <span className='icon' onClick={() => sortData('last_name')}><GoArrowSmallUp /></span></th>
+					<th>email <span className='icon' onClick={() => sortData('email')}><GoArrowSmallUp /></span></th>
 					<th>gender</th>
-					<th>ip address <span  onClick={() => sortData('ip_address')}><GoArrowSmallUp /></span></th>
+					<th>ip address <span
+					className='icon'  
+					onClick={() => sortData('ip_address')}><GoArrowSmallUp /></span></th>
 					<th></th>
 				</tr>
 			</thead>

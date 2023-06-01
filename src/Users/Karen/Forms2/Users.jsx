@@ -1,26 +1,60 @@
 import React from 'react'
 import { GoTrashcan } from 'react-icons/go'
-import {TiArrowSortedDown} from 'react-icons/ti'
-import {FaFemale} from 'react-icons/fa'
-import {FaMale} from 'react-icons/fa'
+import { TiArrowSortedDown } from 'react-icons/ti'
+import { FaFemale } from 'react-icons/fa'
+import { FaMale } from 'react-icons/fa'
+import { MdAlarmOff } from "react-icons/md";
 
-export default function Users({ users, handleDelete, toSortFunc, handleFemail}) {
+export default function Users({ users, handleDelete, toSortFunc,setGenderType }) {
+	console.log(users)
 	return (
-		<table>   
+		<table>
 			<thead>
 				<tr>
 					<th>N</th>
-					<th>first name <span onClick={() => toSortFunc(1)} className='icons'>< TiArrowSortedDown /></span></th>
-					<th>last name <span onClick={() => toSortFunc(2)} className='icons'>< TiArrowSortedDown /></span></th>
-					<th>email <span onClick={() => toSortFunc(3)} className='icons'>< TiArrowSortedDown /></span></th>
-					<th>gender <span className='female' onClick={() => handleFemail("Female")}><FaFemale /></span><span className='male' onClick={() => handleFemail("Male")}><FaMale /></span></th>
-					<th>ip address <span onClick={() => toSortFunc(4)} className='icons'>< TiArrowSortedDown /></span></th>
+					<th>
+						first name
+						<span onClick={() => toSortFunc('first_name')} className='icons'>< TiArrowSortedDown /></span></th>
+					<th>
+						last name
+						<span
+							onClick={() => toSortFunc('last_name')}
+							className='icons'>< TiArrowSortedDown /></span>
+					</th>
+					<th>
+						email
+						<span
+							onClick={() => toSortFunc('email')}
+							className='icons'>< TiArrowSortedDown /></span></th>
+					<th>
+						gender
+						<span
+							className='female'
+							onClick={() => setGenderType("Female")}
+						>
+							<FaFemale />
+						</span>
+						<span onClick={() => setGenderType("")}>
+							<MdAlarmOff />
+						</span>
+						<span
+							className='male'
+							onClick={() => setGenderType("Male")}
+						>
+							<FaMale />
+						</span>
+					</th>
+					<th>
+						ip address
+						<span
+							onClick={() => toSortFunc('ip_address')}
+							className='icons'>< TiArrowSortedDown /></span></th>
 					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				{
-					users.map((user,index) => {
+					users.map((user, index) => {
 						return (
 							<tr key={index}>
 								<td>{index + 1}</td>

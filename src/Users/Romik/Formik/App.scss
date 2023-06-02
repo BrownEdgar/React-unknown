@@ -1,0 +1,96 @@
+body{
+    background-color: #151515;
+}
+.wrapper{
+    display: flex;
+    justify-content: center;
+
+    .headerAndForm{
+        background-color: #222222;
+        margin-top: 90px;
+        padding: 40px;
+        width: 30%;
+        form{
+            button{
+                cursor: pointer;
+            }
+            .inputForm{
+                display: flex;
+                flex-direction: column;
+                margin-top: 20px;
+                input{
+                    margin: 10px 0;
+                    padding: 10px;
+                    background-color: #2E3639;
+                    border: 2px solid #2E3639;
+                    border-radius: 4px;
+                  
+                }
+            }
+            .forgotPassword{
+               margin-top: 20px;
+               cursor: pointer;
+               font-weight: bold;
+               color: white;
+
+            }
+            .formButtons{
+                margin-top: 20px;
+                border-radius: 10px;
+                display: flex;
+                justify-content: space-between;
+                button{
+                    width: 47%;
+                    padding: 10px ;
+                    border-radius: 5px;
+                    border: none;
+                    p{
+                        font-size: 20px;
+                    }
+                }
+                .login{
+                    background-color: #65C6F8;
+                    p{
+                        color: black;
+                    }
+                }
+                .register{
+                    background-color: #333B3E;
+                    p{
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+.wrapper-table{
+    margin-top: 30px;
+    width: 50%;
+    border: 1px solid thistle;
+    table {
+        font-family: 'Saira Condensed',
+            sans-serif;
+        border: 2px solid #555;
+        color: #ffd32a;
+        border-collapse: collapse;
+        width: 100%;
+        text-align: left;
+        font-size: 18px;
+        align-self: start;
+
+
+        td,
+        th {
+            padding: 10px;
+            border: 2px solid #444;
+            span.icon {
+                position: relative;
+                top: 10px;
+                svg {
+                    font-size: 30px;
+                }
+            }
+        }
+    }
+}

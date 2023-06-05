@@ -15,9 +15,9 @@ export default function App() {
 			password: '',
 		},
 		onSubmit(values, { resetForm }) {
-
+			
 			resetForm()
-
+	
 		},
 		// validate(){
 		// 	const errors = {};
@@ -44,7 +44,7 @@ export default function App() {
 						value={formik.values.username}
 						onChange={formik.handleChange}
 						onBlur={formik.handleBlur}
-					/>
+						/>
 					{(formik.touched.username && formik.errors.username) ? <p className='error'>{formik.errors.username}</p> : null}
 				</div>
 				<div>
@@ -56,8 +56,8 @@ export default function App() {
 						value={formik.values.password}
 						onChange={formik.handleChange}
 						onBlur={formik.handleBlur}
-					/>
-					{(formik.touched.password && formik.errors.password) ? <p className='error'>{formik.errors.password}</p> : null}
+						/>
+					{(formik.touched.password && formik.errors.password) ? <p className='error'>{formik.errors.password}</p>: null}
 				</div>
 				<div>
 					<input type="submit" value="register" />

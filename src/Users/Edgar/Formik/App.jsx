@@ -1,6 +1,7 @@
-import { useFormik } from 'formik'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as yup from 'yup'
 import './App.scss'
+
 
 const validationSchema = yup.object({
 	username: yup.string().min(3).max(18).required(),
@@ -9,60 +10,62 @@ const validationSchema = yup.object({
 
 
 export default function App() {
-	const formik = useFormik({
-		initialValues: {
-			username: '',
-			password: '',
-		},
-		onSubmit(values, { resetForm }) {
+	const handleSubmit = (values, { resetForm }) => {
+		console.log(values);
+		resetForm()
+	}
 
-			resetForm()
-
-		},
-		// validate(){
-		// 	const errors = {};
-		// 	if (!errors.username) {
-		// 		errors.username = "Required!"
-		// 	}
-		// 	if (!errors.password) {
-		// 		errors.password = "Required!"
-		// 	}
-		// 	return errors;
-		// }
-		validationSchema,
-	})
-	console.log(formik)
 	return (
 		<div className='wrapper'>
-			<form onSubmit={formik.handleSubmit}>
-				<div>
-					<label htmlFor="username">Username</label>
-					<input
-						type="text"
-						id='username'
-						name='username'
-						value={formik.values.username}
-						onChange={formik.handleChange}
-						onBlur={formik.handleBlur}
-					/>
-					{(formik.touched.username && formik.errors.username) ? <p className='error'>{formik.errors.username}</p> : null}
-				</div>
-				<div>
-					<label htmlFor="password">password</label>
-					<input
-						type="password"
-						id='password'
-						name='password'
-						value={formik.values.password}
-						onChange={formik.handleChange}
-						onBlur={formik.handleBlur}
-					/>
-					{(formik.touched.password && formik.errors.password) ? <p className='error'>{formik.errors.password}</p> : null}
-				</div>
-				<div>
-					<input type="submit" value="register" />
-				</div>
-			</form>
+			<Formik
+				initialValues={{
+					username: '',
+					password: ''
+				}}
+				validationSchema={validationSchema}
+				onSubmit={handleSubmit}
+				validateOnChange={false}
+				validateOnBlur={false}
+			>
+				<Form className='box'>
+					<div>
+						<ErrorMessage>
+							{
+								(errors) => {
+									return (
+										<>
+											{Object.keys(errors).map(keys => {
+												return (
+													<p key={keys} className='err-alert'>{errors[keys]}</p>
+												)
+											})}
+										</>
+									)
+								}
+							}
+						</ErrorMessage>
+					</div>
+					<div>
+						<label htmlFor="username">Username</label>
+						<Field type="text" id='username' name='username' />
+					</div>
+					<div>
+						<label htmlFor="password">password</label>
+						<Field type="password" id='password' name='password' />
+					</div>
+					<div>
+						<Field as='select'>
+							<option value=""></option>
+							<option value="js">js</option>
+							<option value="html">Html</option>
+						</Field>
+					</div>
+					<div>
+						<input type="submit" value="register" />
+					</div>
+				</Form>
+			</Formik>
+
 		</div>
 	)
 }

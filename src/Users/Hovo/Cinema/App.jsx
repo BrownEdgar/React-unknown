@@ -16,7 +16,7 @@ export default function App() {
 	}
 
 	const sortedRate = () => {
-		const sorted = post.toSorted((a, b) => b.rate < a.rate);
+		const sorted = post.toSorted((a, b) => b.rate - a.rate);
 		setPost(sorted);
 	}
 

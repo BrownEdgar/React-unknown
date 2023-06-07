@@ -1,0 +1,98 @@
+body {
+    background: linear-gradient(to right,green ,rgb(77, 233, 77) ,#2F91FF);
+}
+
+.wrapper {
+    margin: 30px auto;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    width: 600px;
+    height: 490px;
+    background-color: #fff;
+    border-radius: 1px;
+}
+
+.wrap {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.forms {
+    padding: 20px;
+    width: 500px;
+    p {
+        padding: 25px 0 5px;
+    }
+}
+
+.textarea-field {
+    resize: none;
+    width: 100%;
+    height: 100px;
+    border: none;
+    background-color: #F3F3F3;
+    outline: none;
+}
+
+.textarea-field:focus {
+    box-shadow: inset 0 0 7px rgb(77, 233, 77), 0 0 5px rgb(40, 40, 255);
+    border-radius: 3px;
+}
+
+form input {
+    background-color: #F3F3F3;
+    height: 40px;
+    border: none;
+    outline: none;
+}
+
+input:focus {
+    box-shadow: inset 0 0 7px rgb(77, 233, 77), 0 0 5px rgb(40, 40, 255);
+    border-radius: 3px;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    .submit-btn {
+        background: linear-gradient(to right,#2F91FF, rgb(77, 233, 77));
+        border-radius: 2px;
+        font-size: 16px;
+        cursor: pointer;
+        padding: 10px 25px;
+        color: #fff;
+        &:hover {
+            background: linear-gradient(to top, rgb(40, 40, 255), rgb(77, 233, 77));
+        }
+    }
+}
+
+small {
+    color: rgb(255, 0, 0);
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+h2 {
+    font-weight: 800;
+}
+
+h5 {
+    font-family: cursive;
+    font-size: 15px;
+    text-align: center;
+    color: #fff;
+    padding-top: 20px;
+}
+
+span {
+    font-family: cursive;
+
+    font-size: 15px;
+    vertical-align: text-top;
+    line-height: 0.9;
+}

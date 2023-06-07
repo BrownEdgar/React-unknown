@@ -4,7 +4,7 @@ import * as yup from 'yup';
 
 const validationSchema = yup.object({
   username: yup.string().min(3).max(8).required(),
-  password: yup.string().matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{10,}$/, 'Minimum 8 characters, at least one letter, one number and one special character:').required(),
+  password: yup.string().matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{10,}$/, 'Minimum 10 characters, at least one letter, one number and one special character:').required(),
 });
 
 export default function MyForm() {
@@ -24,15 +24,13 @@ export default function MyForm() {
     <form onSubmit={formik.handleSubmit} className="form">
       <h1>Вход</h1>
       <div className="form-group">
-        <label htmlFor="username"></label>
         <input
           placeholder='Имя пользователя и Email'
           type="text"
           id="username"
           name="username"
           value={formik.values.username}
-          autoComplete="username"
-        // Input elements should have autocomplete attributes (suggested: "username")
+          autoComplete="off"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
         />
@@ -42,15 +40,13 @@ export default function MyForm() {
       </div>
 
       <div className="form-group">
-        <label htmlFor="password"></label>
         <input
           placeholder='Пароль'
           type="password"
           id="password"
           name="password"
           value={formik.values.password}
-          autoComplete="current-password"
-        // Input elements should have autocomplete attributes (suggested: "current-password"
+          autoComplete="off"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
         />

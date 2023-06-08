@@ -1,0 +1,12 @@
+.div_post {
+    max-width: 1140px;
+    margin: 50px auto;
+    border: 1px solid red;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    li {
+        border: 1.5px solid silver;
+    }
+}

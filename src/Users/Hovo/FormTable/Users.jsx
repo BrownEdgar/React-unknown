@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { Fragment, useState } from 'react'
 import { BiMale } from 'react-icons/bi';
-import { GoTrashcan } from 'react-icons/go';
+
 import { FaFemale, FaSortAlphaUpAlt, FaSortAlphaDown } from 'react-icons/fa';
+import B from './B';
+import A from './A';
 
 
 export default function Users({ users, handleDelete, handleClear, handleSorted, filteredGender }) {
+	const [isEtitableId, setIsEtitableId] = useState(null)
+
+	const setId = (userId) => { 
+		setIsEtitableId(userId)
+	}
+
 	return (
 		<table>
 			<thead>
@@ -50,22 +58,23 @@ export default function Users({ users, handleDelete, handleClear, handleSorted, 
                 <FaSortAlphaUpAlt/>
             </span>
           </th>
-					<th><button className='delButton' onClick={handleClear}>Clear All</button></th>
+					<th><button >edit</button></th>
+					<th><button className='delButton' onClick={handleClear}>{"  "}</button></th>
 				</tr>
 			</thead>
 			<tbody >
 				{
 					users.map((user,index) => {
 						return (
-							<tr key={user.id}>
-								<td>{index + 1}</td>
-								<td>{user.first_name}</td>
-								<td>{user.last_name}</td>
-								<td>{user.email}</td>
-								<td>{user.gender}</td>
-								<td>{user.ip_address}</td>
-								<td><span onClick={() => handleDelete(user.id)}><GoTrashcan /></span></td>
-							</tr>
+							<Fragment key={user.id}>
+									{
+									(isEtitableId === user.id) 
+									? <A index={index} user={user} setId={setId}/> 
+									: <B index={index} user={user} setId={setId} handleDelete={handleDelete}/>
+									}
+							</Fragment>
+
+							
 						)
 					})
 				}

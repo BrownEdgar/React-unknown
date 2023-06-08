@@ -29,7 +29,6 @@ console.log(data)
             <div className='div_registr'>
                 <h1>Вход</h1>
                 <form onSubmit={formik.handleSubmit}>
-                    {formik.touched.username?<ErrorMessage message={formik.errors.username}/>: null}
                     <input type="text"
                     placeholder='Имя пользователя или Email' 
                     name='username'
@@ -37,6 +36,11 @@ console.log(data)
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     />
+										<ErrorMessage
+											fieldName="username" 
+											message={formik.errors.username} 
+											touched={formik.touched.username}
+										/>
                     <input type="password"
                     placeholder='Пароль' 
                     name='password'
@@ -44,8 +48,8 @@ console.log(data)
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     />
-                     <h5>Забыли пароль?</h5>
                     {formik.touched.password ?<ErrorMessage message={formik.errors.password}/>: null}
+                     <h5>Забыли пароль?</h5>
                     <div className='button_div'>
                         <input type="submit" value="Войти" className='voy_but'/>
                         <input type="submit" value="Регистрация" className='regist_but' disabled={true}/>

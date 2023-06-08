@@ -35,7 +35,9 @@ body {
         font-size: 15px;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         border: 0;
-        margin-bottom: 20px;
+        margin-bottom: 5px;
+				margin-top: 15px;
+				padding-bottom: 5px;
         color: white;
         &::placeholder {
           color: #8D95A0;
@@ -75,6 +77,7 @@ body {
         font-weight: bold;
         color: white;
         font-size: 15px;
+				margin-top: 15px;
         &:hover {
             cursor: pointer;
         }

@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom/client'
 import App from './Users/Hovo/NewFormik/App'
+import App from './Users/Hovo/FormTable/App'
 
 
 import './index.css'

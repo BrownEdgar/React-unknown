@@ -10,7 +10,9 @@ export default function Navbar() {
 			<nav>
 				<ul>
 					<li>
-						<Link to={ROUTES.HOME}>Home</Link>
+						<Link to={ROUTES.HOME} className={({ isActive, isPending }) =>
+							isPending ? "pending" : isActive ? "active" : ""
+						}>Home</Link>
 					</li>
 					<li>
 						<Link to={ROUTES.BLOG}>Blog</Link>

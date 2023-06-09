@@ -19,6 +19,11 @@ header{
 				a {
 					text-decoration: none;
 					color: inherit;
+					&.active-link {
+						color: royalblue;
+						font-weight: 700;
+						border-bottom: 1px solid royalblue;
+					}
 				}
 			}
 		}

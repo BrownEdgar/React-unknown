@@ -7,21 +7,21 @@
 }
 
 ::-webkit-scrollbar {
-	width: 10px;
+	width: 8px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-	background: #ffd32a;
+	background: teal;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-	background: #888;
-	border-radius: 4px;
+	background: rgb(5, 221, 221);
+	border-radius: 5px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-	background: #555;
+	background: rgb(154, 255, 255);
 }

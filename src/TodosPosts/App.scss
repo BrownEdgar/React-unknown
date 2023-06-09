@@ -1,0 +1,24 @@
+body{
+    background-color: #243539;
+}
+.error{
+    height: 540px;
+    background-image: url(../../src/assets/error.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.goHome{
+    background-color: #4A5D74;
+    margin-left: 20px;
+    padding: 5px 15px ;
+    border-radius: 7px;
+    border: 1px solid #00FFF4;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    transition: .3s;
+    &:hover{
+        box-shadow: inset 0 0 7px #00FFF4, 0 0 7px #54fff6;
+    } 
+}

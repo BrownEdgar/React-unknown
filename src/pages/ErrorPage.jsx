@@ -1,4 +1,3 @@
-
 import { Link, useNavigate } from 'react-router-dom'
 import Cat from '../assets/Cat.png'
 import ROUTES from '../routes/routes'

@@ -1,4 +1,4 @@
-.div_post {
+.div_todos {
     max-width: 1140px;
     margin: 50px auto;
     display: flex;
@@ -7,7 +7,7 @@
     gap: 50px;
   
     ul {
-      background-color: rgb(72, 94, 95);
+      background-color: teal;
       color: white;
       padding: 10px;
       list-style-type: none;
@@ -25,7 +25,7 @@
         border-radius: 5px;
       }
     }
-    .post_i {
+    .todo_i {
         color: darkblue;
         float: right;
         font-size: 21px;
@@ -40,11 +40,11 @@
     }
   }
 
-  .forms2 {
-      background-color: rgb(72, 94, 95);
-      color: white;
-      padding: 10px;
-      list-style-type: none;
-      border-radius: 10px;
-      width: 300px;
+  .forms {
+    background-color: teal;
+    color: white;
+    padding: 10px;
+    list-style-type: none;
+    border-radius: 10px;
+    width: 300px;
   }

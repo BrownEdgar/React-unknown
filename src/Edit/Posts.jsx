@@ -30,7 +30,7 @@ export default function Posts() {
 
         const obj = {
             id,
-            title2: title2.value || posts[user2].title2,
+            title: title2.value || posts[user2].title,
             body: body.value || posts[user2].body,
         }
         setPosts(posts.with(user2, obj))

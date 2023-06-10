@@ -56,13 +56,9 @@ export default function App() {
                         <Field type='text' id='username' name='username' placeholder="Enter your name"/>
                         <Field type='email' id='email' name='email' placeholder="Enter your email"/>
                     </div>
-                    <Field type='url' id='url' name='url' className="url_inp" placeholder="http://"/>
+                   
 
-                    <Field as='textarea'
-                     name='message' 
-                     id='textarea' 
-                     className='textarea' 
-                     placeholder="Your message here..."/>
+                    
                     <button type='submit'>SUBMIT</button>
                 </div>
             </Form>

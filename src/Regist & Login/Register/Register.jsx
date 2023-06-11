@@ -1,15 +1,17 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import * as yup from 'yup'
-import './App.scss'
+import { NavLink } from 'react-router-dom'
+import ROUTES from '../route/route'  
+import  './Register.scss'
+
 
 const validationSchema = yup.object({
     username: yup.string().min(5).max(10).required(),
     email: yup.string().email().required(),
-    message: yup.string(),
-    url: yup.string().url()
+    password: yup.string(),
 })
 
-export default function App() {
+export default function Register() {
     const handleSubmit = (values, {resetForm}) => {
         console.log(values)
         resetForm()
@@ -21,8 +23,7 @@ export default function App() {
             initialValues={{
               username: '',
               email: '',
-              message: '',
-              url: '',
+              password: '',  
             }}
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
@@ -39,7 +40,7 @@ export default function App() {
                         (errors) => {
                             return(
                                 <>
-                                    {Object.keys(errors).map((elem, index) => {
+                                    {Object.keys(errors).map((elem) => {
                                         return(
                                             <p  key={elem} className='p_error'>{errors[elem]}</p>
                                         )
@@ -51,15 +52,13 @@ export default function App() {
                 </ErrorMessage>
             </div> 
                 <div className='form'>
-                    <h1>GET IN TOUCH</h1>
-                    <div>
+                    <h1>REGISTRATION</h1>
+                    <div className='div_but'>
                         <Field type='text' id='username' name='username' placeholder="Enter your name"/>
                         <Field type='email' id='email' name='email' placeholder="Enter your email"/>
+                        <Field type='password' id='password' name='password' placeholder="Enter your password"/>
                     </div>
-                   
-
-                    
-                    <button type='submit'>SUBMIT</button>
+                    <NavLink className='submit_but'  to={ROUTES.LOGIN}>Register</NavLink>
                 </div>
             </Form>
           </Formik>

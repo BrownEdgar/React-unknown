@@ -13,13 +13,10 @@ export default function Navbar() {
 						<Link to={ROUTES.HOME}>Home</Link>
 					</li>
 					<li>
-						<Link to={ROUTES.BLOG}>Blog</Link>
+						<Link to={ROUTES.REG}>Register</Link>
 					</li>
 					<li>
-						<Link to={ROUTES.ABOUT}>About</Link>
-					</li>
-					<li>
-						<Link to={ROUTES.CONTACT}>Contact</Link>
+						<Link to={ROUTES.LOGIN}>Login</Link>
 					</li>
 				</ul>
 			</nav>

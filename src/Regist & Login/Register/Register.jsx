@@ -1,22 +1,31 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import * as yup from 'yup'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate} from 'react-router-dom'
 import ROUTES from '../route/route'  
 import  './Register.scss'
+import { useState, useEffect} from 'react'
 
 
-const validationSchema = yup.object({
-    username: yup.string().min(5).max(10).required(),
-    email: yup.string().email().required(),
-    password: yup.string(),
-})
 
-export default function Register() {
-    const handleSubmit = (values, {resetForm}) => {
-        console.log(values)
-        resetForm()
+// const validationSchema = yup.object({
+//     username: yup.string().min(5).max(10).required(),
+//     email: yup.string().email().required(),
+//     password: yup.string(),
+// })
+
+export default function Register({ onSubmit, data}) {
+  const navigate = useNavigate()
+
+  const handleSubmit = (values, { resetForm }) => {
+    onSubmit(values)
+    if (Object.keys(values).every(elem => elem !== '')) {
+      navigate(ROUTES.LOGIN);
+    } else {
+      alert('Please fill in all the fields');
     }
-
+    resetForm()
+  }
+    
     return (
         <div className='glav_div'>
           <Formik
@@ -25,7 +34,7 @@ export default function Register() {
               email: '',
               password: '',  
             }}
-            validationSchema={validationSchema}
+            // validationSchema={validationSchema}
             onSubmit={handleSubmit}
             validateOnChange={false}
             validateOnBlur={true}
@@ -58,10 +67,11 @@ export default function Register() {
                         <Field type='email' id='email' name='email' placeholder="Enter your email"/>
                         <Field type='password' id='password' name='password' placeholder="Enter your password"/>
                     </div>
-                    <NavLink className='submit_but'  to={ROUTES.LOGIN}>Register</NavLink>
+                      <button className='submit_but' type='submit'>Register</button> 
                 </div>
             </Form>
           </Formik>
+          <NavLink className='submit_but' to={ROUTES.HOME}>Home</NavLink>
         </div>
       );
     }

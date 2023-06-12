@@ -1,3 +1,5 @@
+// ErrorPage chi ashxatum,Regsitri validacian,Taza formikov valuener@ chei karum qcei state-i mej
+
 import axios from 'axios';
 import ROUTES from './routes/routes';
 import { useState, useEffect } from 'react';
@@ -31,7 +33,6 @@ export default function App() {
         <Route index element={<HomePage />} />
         <Route path={ROUTES.TODOS} element={<TodosPage todos={data.todos} />} />
         <Route path={ROUTES.POSTS} element={<PostsPage posts={data.posts} />} />
-        <Route path="*" element={<ErrorPage />} />
       </Route>
     )
   );

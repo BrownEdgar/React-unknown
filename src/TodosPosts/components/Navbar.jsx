@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
-import './Navbar.scss'
 import ROUTES from '../routes/routes'
+import './Navbar.scss'
 
 export default function Navbar() {
 	return (

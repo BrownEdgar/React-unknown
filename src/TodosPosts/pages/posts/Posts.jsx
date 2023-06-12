@@ -2,16 +2,16 @@ import PropTypes from 'prop-types';
 import './Posts.scss'
 
 
-export default function Posts({data}) {
+export default function Posts({ posts }) {
 	
 	return (
-		<div className="Todo">
-			{data.map(post => (
-				<div className="Todo__Card" key={post.id}>
-          <div className="Todo__Info">
+		<div className="Posts">
+			{posts.map(post => (
+				<div className="Posts__Card" key={post.id}>
+          <div className="Posts__Info">
             <p >ID: {post.id}</p>
-            <p className="Todo__Title">{post.title}</p>
-            <p className="Todo__Title">{post.body}</p>
+            <p className="Posts__Title">{post.title}</p>
+            <p className="Posts__Title">{post.body}</p>
           </div>
 			  </div>
 			))}
@@ -20,7 +20,7 @@ export default function Posts({data}) {
 }
 
 Posts.propTypes = {
-	data: PropTypes.arrayOf(
+	posts: PropTypes.arrayOf(
 	  PropTypes.exact({
 		userId: PropTypes.number,
 		id: PropTypes.number.isRequired,

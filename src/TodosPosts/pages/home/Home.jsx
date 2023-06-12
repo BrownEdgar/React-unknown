@@ -1,7 +1,9 @@
-import Posts from '../../assets/Posts.avif'
-import Todos from '../../assets/Todos.png'
+import Posts from '../../../assets/Posts.avif'
+import Todos from '../../../assets/Todos.png'
 import { useNavigate } from 'react-router-dom'
-import ROUTES from '../routes/routes'
+import ROUTES from '../../routes/routes'
+
+
 import './Home.scss'
 
 
@@ -18,6 +20,7 @@ export default function Home() {
 	}
 
 	return (
+		
 		<div className="home">
             <div >
                 <img src={Todos} alt="" onClick={toTodos}/>

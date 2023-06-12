@@ -1,4 +1,6 @@
-export { default as HomePage } from "./Home";
-export { default as TodosPage } from "./Todos";
-export { default as PostsPage } from "./Posts";
+export { default as HomePage } from "./home/Home";
+export { default as TodosPage } from "./todos/Todos";
+export { default as PostsPage } from "./posts/Posts";
 export { default as ErrorPage } from "./ErrorPage";
+export { default as LoginPage } from "./login/Login";
+

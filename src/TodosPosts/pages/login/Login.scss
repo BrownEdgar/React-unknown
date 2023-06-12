@@ -1,0 +1,124 @@
+body {
+    background-color: #3a3a3a;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #222222;
+    h1 {
+        margin-bottom: 20px;
+    }
+}
+::placeholder {
+    color: #929FA8;
+}
+
+
+
+.form-group {
+    margin-bottom: 20px;
+
+    input[type="text"],
+    input[type="password"] {
+    color: #fff;
+    outline: none;
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background-color: #2E3639;
+    border-radius: 6px;
+}
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+        border: 1px solid teal;
+    }
+}
+
+small{
+    color: red;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.error-message {
+    color: red;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+a {
+    font-size: 14px;
+    color: #777;
+    text-decoration: none;
+}
+
+.submit-btn {
+    background-color: #5AC8FB;
+    color: #000000;
+    border: none;
+    padding: 13px 45px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.4s;
+    font-weight: 700;
+}
+
+.submit-btn:hover {
+    background-color: teal;
+    color: #fff;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.submit-btn-register {
+    background-color: #2D3538;
+    color: #ffffff;
+    border: none;
+    padding: 13px 45px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.4s;
+    font-weight: 700;
+
+}
+
+.submit-btn-register:hover {
+    box-shadow: inset 0 0 0 2px teal;
+    color: teal;
+}
+
+.forgotPassword {
+    padding-top: 15px;
+    a {
+        color: #fff;
+    }
+}
+button {
+    text-decoration: none;
+    color: #fff;
+    padding: 4px 7px;
+    transition: 0.2s;
+    border: 1px solid #00FFF4;
+    border-radius: 5px;
+    background-color: #4A5D74;
+    cursor: pointer;
+        &:hover {
+            box-shadow: inset 0 0 10px #00FFF4, 0 0 10px #54fff6;
+        }
+}

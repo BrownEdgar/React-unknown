@@ -1,6 +1,7 @@
 const ROUTES = {
 	HOME: '/',
-	TODOS: '/todos',
-	POSTS: '/posts',
+	LOGIN: 'login',
+	TODOS: 'todos',
+	POSTS: 'posts',
 }
 export default ROUTES;

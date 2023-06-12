@@ -1,39 +1,61 @@
 import axios from 'axios';
-import Navbar from './components/Navbar'
-import ROUTES from './routes/routes'
+import ROUTES from './routes/routes';
 import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom'
-import { TodosPage, HomePage, ErrorPage, PostsPage, } from './pages'
-import './App.scss'
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
+import { HomePage, TodosPage, PostsPage, ErrorPage, LoginPage } from './pages';
+import Layouts from './pages/Layouts';
+import './App.scss';
 
 export default function App() {
-	const [ data, setData ] = useState([]);
-	const [ todos, setTodo ] = useState([]);
+  const [loged, setLoged] = useState(null);
+  const [data, setData] = useState({
+    posts: [],
+    todos: [],
+  });
 
-    useEffect(() => {
-        axios('https://jsonplaceholder.typicode.com/posts', {
-          params: {
-            _limit: 9,
-          }
-        }).then(res => setData(res.data)),
-        
-		    axios('https://jsonplaceholder.typicode.com/todos', {
-          params: {
-            _limit: 15,
-          }
-        }).then(res => setTodo(res.data))
-        
-      },[])
-	
-	return (
-		<div>
-			<Navbar />
-			<Routes>
-				<Route path={ROUTES.HOME} element={<HomePage />}/>
-				<Route path={ROUTES.TODOS} element={<TodosPage todos={todos}/>}/>
-				<Route path={ROUTES.POSTS} element={<PostsPage data={data}/>}/>
-				<Route path='*' element={<ErrorPage />} />
-			</Routes>
-		</div>
-	)
+  useEffect(() => {
+    axios.all([
+			axios('https://jsonplaceholder.typicode.com/posts?_limit=9'),
+			axios('https://jsonplaceholder.typicode.com/todos?_limit=15'),
+		]).then(([posts, todos]) => {
+			setData({
+        posts: posts.data,
+        todos: todos.data,
+      })
+		})
+  },[]);
+
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path={ROUTES.HOME} element={<Layouts />}>
+        <Route index element={<HomePage />} />
+        <Route path={ROUTES.TODOS} element={<TodosPage todos={data.todos} />} />
+        <Route path={ROUTES.POSTS} element={<PostsPage posts={data.posts} />} />
+        <Route path="*" element={<ErrorPage />} />
+      </Route>
+    )
+  );
+
+  const handleLogin = (loged) => {
+    setLoged(loged);
+  };
+
+  const handleLogout = () => {
+    setLoged(!loged);
+  };
+
+  return (
+    <div>
+      {loged ? (
+        <div>
+          <button onClick={handleLogout}>Выход</button>
+          <RouterProvider router={router} />
+        </div>
+      ) : (
+        <div>
+          <LoginPage onLogin={handleLogin} />
+        </div>
+      )}
+    </div>
+  );
 }

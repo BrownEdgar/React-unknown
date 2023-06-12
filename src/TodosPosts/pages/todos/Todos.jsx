@@ -4,12 +4,12 @@ import './Todos.scss';
 export default function Todos({ todos }) {
 
 	return (
-		<div className="Todo">
+		<div className="Todos">
       {todos.map(user => (
-        <div className="Todo__Card" key={user.id}>
-          <div className="Todo__Info">
+        <div className="Todos__Card" key={user.id}>
+          <div className="Todos__Info">
             <p >ID:{user.id}</p>
-            <p className="Todo__Title">{user.title}</p>
+            <p className="Todos__Title">{user.title}</p>
           </div>
         </div>
       ))}
@@ -18,7 +18,7 @@ export default function Todos({ todos }) {
 }
 
 Todos.propTypes = {
-	todos: PropTypes.arrayOf(
+	data: PropTypes.arrayOf(
 	  PropTypes.exact({
 		userId: PropTypes.number,
 		id: PropTypes.number.isRequired,

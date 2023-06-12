@@ -18,6 +18,7 @@ export default function Navbar() {
 					<li>
 						<Link to={ROUTES.POSTS}>Posts</Link>
 					</li>
+					
 				</ul>
 			</nav>
 		</header>

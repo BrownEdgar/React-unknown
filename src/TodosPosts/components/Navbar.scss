@@ -3,10 +3,12 @@ header{
 	height: 60px;
 	padding: 1em;
 	margin-bottom: 15px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	background-color: #374151;
 	nav {
 		width: 45%;
-		margin-left: auto;
 		height: 100%;
 		ul {
 			list-style: none;

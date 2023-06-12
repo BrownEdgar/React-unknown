@@ -19,7 +19,8 @@ export default function Navbar() {
 					</li>
 					
 				</ul>
-			</nav>
+			</nav> {' | '}
+			<button >Выход</button>
 		</header>
 	)
 }

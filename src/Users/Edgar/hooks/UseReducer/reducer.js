@@ -29,7 +29,6 @@ export default function reducer(state = initialState, action) {
 function sortedData(state) {
 	const data = state.data.toSorted((a,b) => a- b)
 	return { ...state, data }
-	
 }
 
 function findFive(state) {

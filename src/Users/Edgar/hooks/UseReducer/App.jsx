@@ -26,7 +26,6 @@ export default function App() {
 			<h1>State: {JSON.stringify(state)}</h1>
 			<button onClick={handleClick}>sorted data</button>
 			<button onClick={findFive}>find five</button>
-			
 		</div>
 	)
 }

@@ -1,7 +1,5 @@
 import ReactDOM from 'react-dom/client'
-import App from './Users/Hovo/NewFormik/App'
-
-
+import App from './Users/Edgar/hooks/UseReducer/App'
 
 import './index.css'
 

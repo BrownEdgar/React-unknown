@@ -30,10 +30,7 @@ export default function MyForm() {
           id="username"
           name="username"
           value={formik.values.username}
-<<<<<<< HEAD
-=======
           autoComplete="off"
->>>>>>> abca13cea4684f3c21cacf5368e79b0a41575040
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
         />
@@ -43,22 +40,13 @@ export default function MyForm() {
       </div>
 
       <div className="form-group">
-<<<<<<< HEAD
-
-=======
->>>>>>> abca13cea4684f3c21cacf5368e79b0a41575040
         <input
           placeholder='Пароль'
           type="password"
           id="password"
           name="password"
           value={formik.values.password}
-<<<<<<< HEAD
-					autoComplete='off'
- 
-=======
           autoComplete="off"
->>>>>>> abca13cea4684f3c21cacf5368e79b0a41575040
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
         />

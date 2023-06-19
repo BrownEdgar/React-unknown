@@ -1,0 +1,5 @@
+export const ADD_SHUFFLE = 'ADD_SHUFFLE'
+export const ADD_POSTS = 'ADD_POSTS'
+export const ADD_DEVELOPER = 'ADD_DEVELOPER'
+export const ADD_ID = 'ADD_ID'
+export const DELETE_POST = 'DELETE_POST'

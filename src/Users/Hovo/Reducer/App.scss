@@ -1,0 +1,77 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    
+    .btn-group{
+        display: flex;
+        gap: 10px;
+    }
+   
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+  
+      input[type='text'] {
+        padding: 10px;
+        margin-bottom: 10px;
+        width: 200px;
+      }
+  
+      .submit-btn {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+  
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+    }
+  
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      margin-right: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  
+    .post {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  
+      p,
+      h3 {
+        margin-bottom: 5px;
+      }
+  
+      .delete-icon {
+        cursor: pointer;
+        color: #ff0000;
+        transition: color 0.3s ease;
+  
+        &:hover {
+          color: #b30000;
+        }
+      }
+    }
+  }
+  

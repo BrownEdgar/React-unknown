@@ -1,15 +1,12 @@
 import { useReducer } from "react";
 import reducer, { initialState } from './reducer';
-import { ADD_SHUFFLE, ADD_POSTS, ADD_DEVELOPER } from "./actionTypes";
+import { ADD_SHUFFLE, ADD_POSTS, ADD_DEVELOPER, CHANGE_DEVELOPER } from "./actionTypes";
 import axios from "axios";
-import * as yup from 'yup';
-import { Formik, Form, Field } from "formik";
+
 import { BsFillTrashFill } from "react-icons/bs";
 import './App.scss';
+import FormikComponent from "./FormikComponent";
 
-const validationSchema = yup.object({
-  name: yup.string().required(),
-});
 
 export default function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -35,29 +32,14 @@ export default function App() {
 	}
 
   const handleChange = () => {
-    const changeId = state.posts.map((post, index) => ({...post,id: state.arr[index]}));
-      dispatch({ type: ADD_POSTS, payload: changeId});
+ 
+		dispatch({ type: CHANGE_DEVELOPER});
   };
 
   return (
     <div className="container">
   <h1 className="actions">Actions: {state.actions}</h1>
-  <Formik
-    initialValues={{ name: '' }}
-    onSubmit={handleSubmit}
-    validationSchema={validationSchema}
-  >
-    <Form>
-      <Field
-        type='text'
-        id='name'
-        name='name'
-        placeholder='Enter your name'
-        className="input-field"
-      />
-      <input type="submit" value="Submit" className="submit-btn" />
-    </Form>
-  </Formik>
+			<FormikComponent handleSubmit={handleSubmit}/>
   <h1 className="developers">Developers: {state.developers + ''}</h1>
   <h1 className="array">Array: {JSON.stringify(state.arr)}</h1>
   <div className="btn-group">

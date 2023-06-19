@@ -54,7 +54,12 @@ export default function App() {
 
     return (
         <div className='big_div'>
-          <h1>State: {JSON.stringify(initialState)}</h1>
+				<h1>State: {JSON.stringify(state, ["actions",'developers','arr'])}</h1>
+				<input type='text' value={inputValue} onChange={handleChange} />
+				<button onClick={handleRequestFunc}>Request</button>
+				<button onClick={handleShuffle}>Shuffle</button>
+				<button onClick={handleSubmit}>Add value</button>
+				<button onClick={handleChangeIndentifier}>Сhange identifier</button>
           {
             state.posts.map((elem) => (
               <div key={elem.id} className='post_div'>
@@ -65,11 +70,7 @@ export default function App() {
               </div>
             ))
           }
-          <input type='text' value={inputValue} onChange={handleChange}/>
-          <button onClick={handleRequestFunc}>Request</button>
-          <button onClick={handleShuffle}>Shuffle</button>
-          <button onClick={handleSubmit}>Add value</button>
-          <button onClick={handleChangeIndentifier}>Сhange identifier</button>
+ 
         </div>
       );
     }

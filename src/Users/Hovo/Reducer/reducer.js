@@ -1,4 +1,4 @@
-import { ADD_SHUFFLE, ADD_POSTS, ADD_DEVELOPER } from "./actionTypes";
+import { ADD_SHUFFLE, ADD_POSTS, ADD_DEVELOPER, CHANGE_DEVELOPER } from "./actionTypes";
 
 export const initialState = {
     actions: 0,
@@ -17,6 +17,7 @@ export const initialState = {
         };
         
       case ADD_SHUFFLE: return arrShuffle(state);
+			case CHANGE_DEVELOPER: return change(state);
         
       case ADD_DEVELOPER:return {
           ...state, 
@@ -38,3 +39,13 @@ export const initialState = {
     const arr = state.arr.sort(() => Math.random() - 0.5);
     return { ...state, arr, actions: state.actions + 1 };
   };
+
+
+function change(state) {
+	const changePosts = state.posts.map((post, index) => ({ ...post, id: state.arr[index] }))
+	return {
+		...state,
+		actions: state.action + 1,
+		posts: changePosts,
+	}
+}

@@ -1,6 +1,6 @@
 import Card from "./Card";
 import PropTypes from "prop-types"
-export default function Cards(list) {
+export default function Cards({list}) {
     const settings = {
         dots: true,
         infinite: true,

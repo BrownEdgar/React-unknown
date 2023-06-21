@@ -23,7 +23,7 @@ export default function App() {
       <button onClick={max}>Max</button>
       <button onClick={min}>Min</button>
       <button onClick={reset}>Reset</button>
-      <div>Data: {JSON.stringify(data,data2)}
+      <div>Data: {JSON.stringify(data)}
       <p>Data_2: {JSON.stringify(data2)}</p>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client'
-// import App from './Users/Edgar/hooks/UseReducer/App'
-import App from './Users/Eric/react20/App'
+import App from './Users/Edgar/hooks/UseReducer/App'
+
 
 
 

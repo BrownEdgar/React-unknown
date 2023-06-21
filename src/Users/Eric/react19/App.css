@@ -1,0 +1,21 @@
+body {
+	background-color: black;
+}
+.slideImg{
+  
+    height: 470px;
+    margin: 0 auto;
+}
+.slide{
+    width: 86%;
+    margin: 0 auto;
+}
+
+.slide h2{
+    color: white;
+    text-align: center;
+}
+.slide p{
+    color: darkgray;
+    text-align: center;
+}

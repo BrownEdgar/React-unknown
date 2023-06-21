@@ -1,9 +1,5 @@
 import Card from "./Card";
 import PropTypes from "prop-types"
-
-
-import Slider from "react-slick";
-
 export default function Cards({list}) {
     const settings = {
         dots: true,

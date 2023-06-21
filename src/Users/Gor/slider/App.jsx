@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 import reducer, { initialState } from "./reducer";
-import Cards from "./Cards";
+import Cards from './Cards'
 
 import './App.css'
 export default function App(){

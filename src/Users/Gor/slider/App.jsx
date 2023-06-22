@@ -1,6 +1,6 @@
 import { useReducer } from "react";
-import reducer, { initialState } from "./reducer";
-import { initialState } from "./reducer";
+import {reducer} from "./reducer";
+import { initialState } from './reducer'
 import './App.css'
 export default function App(){
     const [state, dispatch] = useReducer(reducer, initialState)

@@ -1,6 +1,6 @@
 import Card from "./Card";
 import PropTypes from "prop-types"
-export default function Cards(list) {
+export default function Cards({list}) {
     const settings = {
         dots: true,
         infinite: true,
@@ -11,11 +11,14 @@ export default function Cards(list) {
       };
     return(
         <div className="Cards">
-            {
-                list.map((card)=> <Card key={card.id} card={card}/>
+				<Slider {...settings}>
+					{
+						list.map((card) => <Card key={card.id} card={card} />
 
-                
-            )}
+
+						)}
+				</Slider>
+          
         </div>
     )
 }

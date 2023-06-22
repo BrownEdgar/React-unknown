@@ -1,15 +1,16 @@
+body {
+	background-color: black;
+}
 .slideImg{
-    width: 900px;
+  
     height: 470px;
     margin: 0 auto;
 }
 .slide{
-    width: 1000px;
+    width: 86%;
     margin: 0 auto;
 }
-body{
-    background-color: black;
-}
+
 .slide h2{
     color: white;
     text-align: center;

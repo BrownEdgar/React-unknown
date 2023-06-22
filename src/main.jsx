@@ -1,10 +1,6 @@
 import ReactDOM from 'react-dom/client'
 
-
-
-import App from './Users/Gor/CustomHook/App'
-
-
+import App from './Users/Gor/productCategory/App'
 
 import './index.css'
 

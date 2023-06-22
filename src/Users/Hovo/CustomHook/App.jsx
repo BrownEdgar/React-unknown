@@ -3,7 +3,7 @@ import './App.scss'
 
 export default function App() {
   const [data, data2, { shuffle, sorted, max, min, random,reset }] = useRandom({
-    type: 'number',
+    type: 'string',
     count: 10,
     range: {
       min: 100,

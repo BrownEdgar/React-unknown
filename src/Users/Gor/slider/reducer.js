@@ -10,7 +10,7 @@ export const initialState ={
             id: 2,
             data: 'null',
             title: 'null',
-            image: './img/2.jpg'
+            image: '.public/img/2.jpg'
         },
         {
             id: 3,
@@ -32,7 +32,8 @@ export const initialState ={
         }
     ]
 }
-export default(state = initialState,{type, payload})=>{
-    switch (type) {     
+export default (state = initialState, {type, payload}) =>{
+    switch (type) {
+			default: return state
     }
 }

@@ -5,6 +5,7 @@ import axios from "axios";
 import { BsFillTrashFill } from "react-icons/bs";
 import MyForm from "./MyForm";
 import './App.scss';
+import FormikComponent from "./FormikComponent";
 
 export default function App() {
   const [state, dispatch] = useReducer(reducer, initialState);

@@ -19,13 +19,13 @@ export default function App() {
       setCurrentButtonID([...currentButtonID, index]);
     } else {
       setCurrentButtonID((prevValues) =>
-        prevValues.filter((elem) => elem !== index)
+        prevValues.filter(elem => elem !== index)
       );
     }
   };
 
   const categoryCount = (category) => {
-    return product.filter(item => item.category === category).length;
+    return product.filter(elem => elem.category === category).length;
   };
 
   const productUpd = !currentButtonID.length 

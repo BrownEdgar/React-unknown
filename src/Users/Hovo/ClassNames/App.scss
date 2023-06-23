@@ -1,0 +1,60 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.App {
+  nav {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    height: 50px;
+    background-color: #333;
+    
+.btn {
+    padding: 8px 16px;
+    margin-right: 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: #eee;
+    color: #333;
+    font-variant: small-caps;
+    font-family:system-ui;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    
+    &.active {
+      background-color: teal;
+      border-bottom: 2px solid rgb(1, 255, 35);
+      color: #fff;
+    }
+  }
+}
+
+.product {
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    .items {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 400px;
+      padding: 10px;
+        img {
+          width: 70%;
+          height: 200px;
+          object-fit: contain;
+          margin-left: 16px;
+        }
+    }
+}
+}

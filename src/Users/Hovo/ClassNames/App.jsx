@@ -26,7 +26,7 @@ export default function App() {
 
   const categoryCount = (category) => {
     return product.filter(elem => elem.category === category).length;
-  };
+  }
 
   const productUpd = !currentButtonID.length 
     ? product

@@ -3,7 +3,7 @@ import classNames from "classnames";
 import "./App.scss";
 
 export default function App() {
-  const [product, setProduct] = useState([
+  const [product] = useState([
     {
       id: 1,
       name: "wolf",
@@ -40,12 +40,21 @@ export default function App() {
       image: "https://redstore.am/uploads/shop/products/large/21cb6c0a59721dee438aeb0d02271820.png",
       category: "phones"
     },
-  ]);
+  ])
 
   const [categoriesId, setCategories] = useState({
     categoriesId: [],
     buttonCat: []
   });
+
+
+	const changeFilter = () => { 
+		if (categoriesId.buttonCat.length === 0) return product; 
+		return product.filter(elem => categoriesId.buttonCat.includes(elem.category))
+	}
+
+	
+
 
   
   useEffect(() => {
@@ -69,7 +78,7 @@ export default function App() {
           className={classNames("btn", {
             active: categoriesId.buttonCat.length === 0,
           })}
-          onClick={() => handleShowFunc("All")}
+					onClick={() => setCategories({ ...categoriesId, buttonCat: [], })}
         >
           All
         </button>
@@ -88,14 +97,9 @@ export default function App() {
         })}
       </div>
       <div className="images_div">
-        {product.map((elem) => {
-          if (
-            categoriesId.buttonCat.length === 0 ||
-            categoriesId.buttonCat.includes(elem.category)
-          ) {
-            return <img key={elem.id} src={elem.image} alt={elem.name} />;
-          }
-        })}
+				{changeFilter().map(elem => {
+					return <img src={elem.image} key={elem.id} />
+				})}
       </div>
     </div>
   );

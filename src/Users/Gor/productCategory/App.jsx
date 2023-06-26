@@ -14,14 +14,14 @@ export default function App() {
 
 		if (!currenButtonID.includes(index)) {
 			setCurrenButtonID([...currenButtonID, index])
-            setFilteredProducts(products)
-            const getCategory = categories[index]
-            const filtered = products.filter((product) => product.category === getCategory)
-            setFilteredProducts(filtered)
+           
+			const getCategory = ['Salads','Alcohol']
+			const filtered = products.filter((product) => getCategory.includes(product.category))
+            setFilteredProducts(1)
 		}else{
 			setCurrenButtonID(prevValues => {
 				return prevValues.filter(elem => elem !== index)
-                
+
 			})
 		}
 		
@@ -53,7 +53,7 @@ export default function App() {
         <div className="product">
         {filteredProducts.map((product)=>(
             <div key={product.id} className='item'>
-                <img src={product.image} alt={product.title}></img>
+                <img src={product.charAt("sa")} alt={product.title}></img>
                 <p>{product.title}</p>
             </div>
         ))}

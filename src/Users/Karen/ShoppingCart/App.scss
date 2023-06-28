@@ -1,0 +1,136 @@
+body {
+    background-color: #003466;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glav_div {
+    h1 {
+        text-align: center;
+        color: #D2E5FF;
+        margin-top: 30px;
+    }
+    .shopping_div {
+        margin-top: 50px;
+        width: 600px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+        padding-bottom: 50px;
+        h4 {
+            margin-top: 10px;
+            color: #F35458;
+            padding-left: 30px;
+            font-size: 19px;
+        }
+        .last_div {
+            display: flex;
+            position: relative;
+            width: inherit;
+            span {
+                color: #F35458;
+            }
+            h3 {
+                color: #4885bd;
+                padding-left: 30px;
+                margin-top: 20px;
+                font-size: 23px;
+            }
+            .check_but {
+                position: absolute;
+                right: 30px;
+                margin-top: 20px;
+                background-color: #F35458;
+                color: white;
+                padding: 5px;
+                width: 100px;
+                border: 0;
+                transition: .4s;
+                font-weight: bold;
+                font-size: 16px;
+                &:hover {
+                    transform: scale(1.1);
+                    cursor: pointer;
+                    background-color: #4885bd;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+    .red_div {
+        width: 600px;
+        background-color: #F35458;
+        height: 60px;
+        border-bottom: 10px solid #003466;
+        button {
+            background-color: white;
+            padding: 5px;
+            border: 0;
+            color:#F35458;
+            float: right;
+            margin: 10px 20px 10px 0px;
+            transition: .4s;
+            font-weight: bold;
+            .icon {
+                font-size: 17px;
+            }
+            span {
+                font-size: 15px;
+                padding-left: 7px;
+                vertical-align: middle;
+            }
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+                border-radius: 10px;
+            }
+        }
+    }
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        width: inherit;
+        row-gap: 20px;
+        padding: 20px;
+        li {
+            position: relative;
+            display: flex;
+            column-gap: 60px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.377);
+            height: 70px;
+          img {
+            object-fit: cover;
+            width: 100px;
+            height: 60px;
+            object-position: center;
+          }
+          .del_icon {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-size: 25px;
+            color: #4885bd;
+            transition: .3s;
+            &:hover {
+                cursor: pointer;
+                color: #F35458;
+                transform: scale(1.1);
+            }
+          }
+        }
+        .info_div {
+            display: flex;
+            flex-direction: column;
+            .flower_name {
+                color: #4885bd;
+            }
+            .flower_price {
+                color: black;
+            }
+        }
+    }
+    
+}

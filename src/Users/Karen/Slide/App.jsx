@@ -8,7 +8,7 @@ export default function App() {
     const [state, dispatch] = useReducer(reducer, initialState)
     return(
         <div>
-            <ImagesComponent image={state.images}/>
+            <ImagesComponent image={state.images}  />
         </div>
     )
 }

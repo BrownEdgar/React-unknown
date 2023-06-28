@@ -11,11 +11,14 @@ export default function Cards({list}) {
       };
     return(
         <div className="Cards">
-            {
-                list.map((card)=> <Card key={card.id} card={card}/>
+				<Slider {...settings}>
+					{
+						list.map((card) => <Card key={card.id} card={card} />
 
-                
-            )}
+
+						)}
+				</Slider>
+          
         </div>
     )
 }

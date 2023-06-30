@@ -1,22 +1,22 @@
-import Navbar from './components/Navbar/Navbar'
-import ROUTES from './routes/routes'
-import { Routes, Route } from 'react-router-dom'
-import { BlogPage, HomePage, ErrorPage, ContactPage, AboutPage } from './pages'
+import { useSelector, useDispatch } from 'react-redux'
 
 import './App.css'
 
 export default function App() {
+	const sel = useSelector(state => state.product)
+	const dispatch = useDispatch()
+	
+	const handleChangeFunc = () => {
+		dispatch({type: "CHANGE", payload: "SAMSUNG"}); 
+	}
+
 	return (
 		<div>
-			<Navbar />
-			<Routes>
-				<Route path={ROUTES.HOME} element={<HomePage />}/>
-				<Route path={ROUTES.BLOG} element={<BlogPage />}/>
-				<Route path={ROUTES.ABOUT} element={<AboutPage />}/>
-				<Route path={ROUTES.CONTACT} element={<ContactPage />} />
-				<Route path='*' element={<ErrorPage />} />
-			</Routes>
-
+			<h1>Redux</h1>
+			<pre>
+				{JSON.stringify(sel)}
+			</pre>
+			<button onClick={handleChangeFunc}>Change Name</button>
 		</div>
 	)
 }

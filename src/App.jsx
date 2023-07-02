@@ -1,20 +1,17 @@
-import { useSelector, useDispatch } from "react-redux";
-
+import ToTodos from "./components/todos/ToTodos";
+import ToUsers from "./components/users/ToUsers";
+import ToPosts from "./components/posts/ToPosts"
+import ToComments from "./components/comments/ToComments"
+import './App.css'
 
  export default function App() {
-const users = useSelector(state => state)
-const dispatch = useDispatch()
-const handleClick = () => {
-dispatch({ type:'name', payload: 'Samvel' })
-}
-
-
-
 
   return (
-    <div>
-        {JSON.stringify(users)}
-        <button onClick={handleClick}>Change</button>
+    <div className="App">
+        <ToTodos/>
+        <ToUsers/>
+        <ToPosts/>
+        <ToComments/>
     </div>
   );
 };

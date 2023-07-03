@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { addPost } from "../../app/features/posts/postsSlice";
+import { addPost,closPost } from "../../app/features/posts/postsSlice";
 import axios from "../../axios";
 
  export default function ToPosts() {
@@ -11,9 +11,13 @@ import axios from "../../axios";
         axios.get('posts').then(res => dispatch(addPost(res.data)))
     }
 
+    const closPosts = () => dispatch(closPost())
+
     return (
       <div className="info">
-        <button onClick={getPosts}>Posts</button>
+        {posts.length > 0 
+          ? <button onClick={closPosts}>Close Posts</button>
+          : <button onClick={getPosts}>Open Posts</button>}
         {
           posts.map(posts => (
             <p key={posts.id}>

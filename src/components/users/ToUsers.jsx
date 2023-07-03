@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { addUser, deleteUser } from "../../app/features/users/usersSlice";
+import { addUser, deleteUser, closeUsers } from "../../app/features/users/usersSlice";
 import axios from "../../axios";
 
  export default function ToUsers() {
@@ -14,9 +14,14 @@ import axios from "../../axios";
       dispatch(deleteUser({ id }))
     }
 
+    const closUser = () => dispatch(closeUsers())
+    
+
   return (
     <div className="info">
-      <button onClick={getUsers}>Users</button>
+      {users.length > 0 
+        ? <button onClick={closUser}>Close Users</button> 
+        : <button onClick={getUsers}>Open Users</button>}
       {
         users.map(user => (
           <p key={user.id}>
@@ -27,6 +32,7 @@ import axios from "../../axios";
           </p>
         ))
       }
+      
     </div>
   );
 };

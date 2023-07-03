@@ -4,12 +4,13 @@ const initialCommentsValue = []
 
 
 const commentsSlice =  createSlice({
-    name:'comments',
-    initialState:initialCommentsValue,
-    reducers:{
-        addComment:(_,action) => action.payload
-    }
+  name:'comments',
+  initialState:initialCommentsValue,
+  reducers:{
+    addComment:(_,action) => action.payload,
+    closeComment:(state) => {return state = initialCommentsValue}
+  }
 })
 
 export default commentsSlice.reducer;
-export const { addComment } = commentsSlice.actions
+export const { addComment,closeComment } = commentsSlice.actions

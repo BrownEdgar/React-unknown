@@ -1,13 +1,16 @@
-const initialTodosValue = [
-	{
-		id: 1,
-		title: "Jhon",
-		completed: false
-	}
-]
+import { createSlice } from "@reduxjs/toolkit"
 
-export default function todosReducer(state = initialTodosValue, action) {
-	switch (action.type) {
-		default: return state
+const initialTodosValue = []
+
+
+
+const todosSlice = createSlice({
+	name: 'todos',
+	initialState: initialTodosValue,
+	reducers: {
+		addTodos:(_, action) => action.payload
 	}
-}
+})
+
+export default todosSlice.reducer;
+export const { addTodos } = todosSlice.actions

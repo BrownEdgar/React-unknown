@@ -1,3 +1,5 @@
+import { createSlice } from "@reduxjs/toolkit"
+
 const initialUsersValue = [
 	{
 		id:1,
@@ -5,13 +7,21 @@ const initialUsersValue = [
 	}
 ]
 
-export default function usersReducer(state = initialUsersValue, action) {
-
-	switch (action.type) {
-		case 'CHANGE_NAME': return [{
-			id: 1,
-			name: action.payload
-		}]
-		default: return state
+// 'users/addUser'
+const usersSlice = createSlice({
+	name: 'users',
+	initialState: initialUsersValue,
+	reducers: {
+		addUser:(state,action) => {
+			console.log('state:', state);
+			console.log('action:', action);
+			state.push(action.payload);
+		},
+		deleteUser: (state, { payload }) => {
+			state.filter(user => user.id !== payload.id)
+		}
 	}
-}
+})
+
+export default usersSlice.reducer;
+export const { addUser, deleteUser } = usersSlice.actions

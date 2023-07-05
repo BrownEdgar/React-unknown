@@ -12,32 +12,32 @@ export default function App() {
 		dispatch(getCarts())
 	}, [])
 
-	const handleDeleteFunc = (id) => {
-		dispatch(deleteFunc(id))
+	const handleDeleteFunc = (cartId, productIndex) => {
+		dispatch(deleteFunc({ cartId, productIndex }))
 	}
 
 	return (
 		<div className='container'>
-		  {sel.carts.status === "pending" ? (
+		{sel.carts.status === "pending" ? (
 			<h1>Loading....</h1>
-		  ) : (
+		) : (
 			<div className='container'>
-			  {sel.carts.addCarts.map(cart => (
+			{sel.carts.addCarts.map(cart => (
 				<div key={cart.id} className='div'>
-				  {cart.products.map(product => (
-					  <div key={product.id} className='cart-item'>
-						<span className='span_delete' onClick={() => handleDeleteFunc(cart.id)}><TiDeleteOutline/></span>
-					  <p className='cart-title'>Title : {product.title}</p>
-					  <p className='cart-price'>Price : {product.price}</p>
-					  <p className='cart-total'>Total : {product.total}</p>
+				{cart.products.map((product,index) => (
+					<div key={product.id} className='cart-item'>
+						<span className='span_delete' onClick={() => handleDeleteFunc(cart.id, index)}><TiDeleteOutline/></span>
+					<p className='cart-title'>Title : {product.title}</p>
+					<p className='cart-price'>Price : {product.price}</p>
+					<p className='cart-total'>Total : {product.total}</p>
 					</div>
-				  ))}
+				))}
 				</div>
-			  ))}
+		))}
 			</div>
-		  )}
+	)}
 		</div>
-	  );
+);
 }
 
 

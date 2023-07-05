@@ -1,13 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react';
 import {deleteUser } from './app/features/users/usersSlice';
-import { addTodos } from './app/features/todos/todosSlice';
-import axios from 'axios';
+import { addTodos, getAsyncTodos } from './app/features/todos/todosSlice';
+
 
 import './App.css'
 
 function App() {
-	const users = useSelector(state => state)
+
 	const todos = useSelector(state => state.todos)
 	const dispatch = useDispatch();
 	const handleClick = () => {
@@ -15,19 +15,30 @@ function App() {
 	}
 
 	useEffect(() => {
-		axios.get('https://jsonplaceholder.typicode.com/todos')
-			.then(res => dispatch(addTodos(res.data)))
+
+		// 
+		dispatch(addTodos())
+		
 	}, [])
 	
+	const myFunction = () => {  
+		dispatch(getAsyncTodos('https://jsonplaceholder.typicode.com/todos'))
+	}
 
 	return (
 		<>
 			<div>
 				<h1>Hello redux</h1>
-				<pre>
-					{JSON.stringify(todos,null,1)}
-				</pre>
-				<button onClick={handleClick}>add user</button>
+				{
+					todos.status === 'pending' ? <h1>loaging...</h1> : (
+						<>
+						<pre>
+							{JSON.stringify(todos,null,1)}
+						</pre>
+						</>
+					)
+				}
+				<button onClick={myFunction}>add user</button>
 			</div>
 		</>
 	)

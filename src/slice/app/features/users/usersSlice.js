@@ -10,7 +10,7 @@ const initialUsersValue = []
         deleteUser:(state, { payload }) => {
           return state.filter(user => user.id !== payload.id)
         },
-        closeUsers:(state) => {return state = initialUsersValue }
+        closeUsers:() =>  initialUsersValue 
     }
   })
 

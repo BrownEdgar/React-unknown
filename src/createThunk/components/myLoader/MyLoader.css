@@ -1,0 +1,30 @@
+
+.loader{
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  margin: 0 100px;
+}
+
+.loader h1 {
+  animation: flash 2s infinite;
+  position: absolute;
+  left: 34px;
+  top: 20px;
+}
+
+@keyframes flash {
+  0% {
+    opacity: 1;
+    color: white;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+    color: teal;
+  }
+}

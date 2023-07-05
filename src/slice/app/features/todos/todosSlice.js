@@ -10,7 +10,7 @@ const todosSlice = createSlice({
     deleteTodos: (state, { payload }) => {
       return state.filter(todo => todo.id !== payload.id);
     },
-    closeTodos:(state) => { return state = initialTodosValue }
+    closeTodos:() =>  initialTodosValue 
   }
 })
 

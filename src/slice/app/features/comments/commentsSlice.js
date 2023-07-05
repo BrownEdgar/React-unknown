@@ -8,7 +8,7 @@ const commentsSlice =  createSlice({
   initialState:initialCommentsValue,
   reducers:{
     addComment:(_,action) => action.payload,
-    closeComment:(state) => {return state = initialCommentsValue}
+    closeComment:() =>  initialCommentsValue
   }
 })
 

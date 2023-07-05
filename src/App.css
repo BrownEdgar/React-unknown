@@ -1,4 +1,4 @@
-.glav_div {
+/* .glav_div {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -30,8 +30,8 @@
   button:hover {
 	background-color: #0056b3;
   }
-  
-  .div {
+  */
+  /* .div {
 	width: 400px;
 	padding: 20px;
 	background-color: #fff;
@@ -42,4 +42,68 @@
 	font-size: 14px;
 	line-height: 1.5;
 	text-align: justify;
+  } */ 
+
+/* //////////////////////////////////////////////////////// */
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+  .container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	height: 100vh;
+	border: 1px solid red;
+	column-gap: 30px;
+	overflow: auto;
+  }
+  
+  .cart-list {
+	list-style-type: none;
+	padding: 0;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+  }
+  
+  .cart-item {
+	width: 400px;
+	margin-top: 20px;
+	padding: 20px;
+	background-color: #f2f2f2;
+	border-radius: 4px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	flex: 1 0 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+  }
+  
+  .cart-title {
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 10px;
+  }
+  
+  .cart-price {
+	font-size: 14px;
+	color: #888;
+  }
+  
+  .cart-total {
+	font-size: 14px;
+	color: #888;
+  }
+
+  .span_delete {
+	color: rgb(180, 36, 36);
+	font-size: 20px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
   }

@@ -15,7 +15,7 @@ export default function App() {
 
   const handleDelete = (id) => dispatch(deleteProducts({ id }))
 
-  const handleDeleteProduct = (id) => dispatch(deleteProduct({ id }))
+	const handleDeleteProduct = (cartId, productId) => dispatch(deleteProduct({ cartId, productId }))
 
 return (
 <div>
@@ -33,7 +33,7 @@ return (
           <ul className="product-list">
             {cart.products.map(product => (
               <li key={product.id} className="product-item">
-                  <span onClick={() => handleDeleteProduct(product.id)}>&times;</span>
+                  <span onClick={() => handleDeleteProduct(cart.id, product.id)}>&times;</span>
                 <p className="product-details">
                   ID: {product.id}<br/>
                   Title: {product.title}<br/>

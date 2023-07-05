@@ -1,44 +1,48 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { useEffect } from 'react';
-import {deleteUser } from './app/features/users/usersSlice';
-import { addTodos, getAsyncTodos } from './app/features/todos/todosSlice';
+
 
 
 import './App.css'
+import { addUser } from './app/features/test/testSlice'
+import { addTodos } from './app/features/todos/todosSlice'
 
 function App() {
 
-	const todos = useSelector(state => state.todos)
-	const dispatch = useDispatch();
-	const handleClick = () => {
-		dispatch(deleteUser({id:1}))
+	const users = useSelector(state => state.test)
+	const dispatch = useDispatch()
+	const handleSubmit = (e) => {  
+		e.preventDefault();
+		const { username } = e.target;
+		const user = {
+			name: username.value
+		}
+		dispatch(addUser(user))
 	}
-
-	useEffect(() => {
-
-		// 
-		dispatch(addTodos())
-		
-	}, [])
-	
-	const myFunction = () => {  
-		dispatch(getAsyncTodos('https://jsonplaceholder.typicode.com/todos'))
+	const addTodo = () =>{
+		dispatch(addTodos({
+			id:1,
+			name:'Jhon'
+		},
+		))
 	}
 
 	return (
 		<>
 			<div>
-				<h1>Hello redux</h1>
-				{
-					todos.status === 'pending' ? <h1>loaging...</h1> : (
+				<h1>Hello users</h1>
+					<form onSubmit={handleSubmit}>
+					<input type="text" name="username"/>
+					<input type="submit" value='add user' />
+					</form>
+
 						<>
-						<pre>
-							{JSON.stringify(todos,null,1)}
-						</pre>
+						<button onClick={addTodo}>Add</button>
+							<pre>
+								{JSON.stringify(users, null, 1)}
+							</pre>
 						</>
-					)
-				}
-				<button onClick={myFunction}>add user</button>
+		
+
 			</div>
 		</>
 	)

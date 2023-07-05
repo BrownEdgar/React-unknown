@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import  axios  from 'axios'
+import axios from 'axios'
 const initialTodosValue = {
 	data: [],
 	status: 'idle',
@@ -15,14 +15,10 @@ const todosSlice = createSlice({
 	name: 'todos',
 	initialState: initialTodosValue,
 	reducers: {
-		addTodos:( ) => {
-			return {
-				data: [],
-				status: 'success',
-				error: null
-			}
+		addTodos: (state,action) => {
+			state.data.push(action.payload)
 		}
-		
+
 	},
 	// extraReducers:(builder) => {
 	// 	builder
@@ -39,25 +35,28 @@ const todosSlice = createSlice({
 	// 		}
 	// 	})
 	// 	.addCase(getAsyncTodos.rejected, (state,{error}) => {
-	
+
 	// 		state.status = 'rejected'
 	// 		state.error = {message: error.message || 'please check url'}
 	// 	})
 	// }
 	extraReducers: {
-		[getAsyncTodos.pending]: (state, action) => {
-			console.log(action)
+		[getAsyncTodos.pending]: (state) => {
+
 			state.status = 'pending'
 		},
 		[getAsyncTodos.fulfilled]: (state, action) => {
-			console.log(action)
-			state.status = 'pending'
+	
+			return {
+				data: action.payload,
+				status: 'success',
+				error: null
+			}
 		},
-		[getAsyncTodos.rejected]: (state, action) => {
-			console.log(action)
-			state.status = 'pending'
+		[getAsyncTodos.rejected]: (state) => {
+			state.status = 'failure'
 		},
-		'users/addUser': (state, action) => { },
+
 	}
 })
 

@@ -46,7 +46,7 @@
 
 /* //////////////////////////////////////////////////////// */
 
-*{
+/* *{
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -106,4 +106,43 @@
 	position: absolute;
 	right: 10px;
 	top: 10px;
+  } */
+
+  /* ////////////////////////////////////////////////////// */
+  *{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
   }
+
+  .container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	height: 100vh;
+	column-gap: 30px;
+	overflow: auto;
+}
+
+.container ul {
+	list-style-type: none;
+	padding: 0;
+	display: flex;
+	justify-content: space-between;
+	column-gap: 20px;
+	flex-wrap: wrap;
+  }
+  
+  .container ul li {
+	width: 400px;
+	margin-top: 20px;
+	padding: 20px;
+	background-color: #f2f2f2;
+	border-radius: 4px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	flex: 1 0 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+  }
+  

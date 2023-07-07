@@ -8,7 +8,7 @@ const initialCartsValue = {
 }
 
 export const getCarts = createAsyncThunk('carts/getCarts', async() => {
-    const cart = await axios.get("https://dummyjon.com/carts")
+    const cart = await axios.get("https://dummyjson.com/carts")
     return cart.data.carts
  })
 
@@ -16,16 +16,17 @@ const cartsSlice = createSlice({
     name: 'carts',
     initialState: initialCartsValue,
     reducers: {
-        deleteFunc: (state, action) => {
-            state.addCarts = state.addCarts.filter(cart => cart.id !== action.payload)
-        }
+			deleteFunc: (state, { payload: { cartId, productIndex} }) => {
+				const cart = state.addCarts.find(cart => cart.id === cartId);
+				cart.products.splice(productIndex, 1);
+			}
     },
     extraReducers: (builder) => {
         builder
-        .addCase(getCarts.pending, (state, action) => {
+        .addCase(getCarts.pending, (state) => {
             state.status = 'pending'
         })
-        .addCase(getCarts.fulfilled, (state, action) => {
+        .addCase(getCarts.fulfilled, (_, action) => {
             return {addCarts: action.payload, status: "success", error: null}
         })
         .addCase(getCarts.rejected, (state, {error}) => {

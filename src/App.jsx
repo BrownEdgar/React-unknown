@@ -11,6 +11,7 @@ export default function App() {
 		dispatch(getTodos());
 	  }, []);
 
+
 	  const handleSubmit = (e) => {
 		e.preventDefault()
 		const {userId, userTitle} = e.target
@@ -41,8 +42,8 @@ export default function App() {
 			  ))}
 			</ul>
 		  )}
-		</div>
-	  );
+	</div>
+);
 }
 
 

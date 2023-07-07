@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client'
-import App from './createThunk/App'
+import App from './middleWare/App'
 import { Provider } from 'react-redux'
-import store from './createThunk/app/store'
+import store from './middleWare/app/store'
 import './index.css'
 
 

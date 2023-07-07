@@ -20,19 +20,18 @@ const cartsSlice =  createSlice({
       state.data.carts = state.data.carts.filter(cart => cart.id !== payload.id)
     },
     deleteProduct: (state, { payload }) => {
-      state.data.carts.map(cart => {
-        cart.products = cart.products.filter(product => product.id !== payload.id)
-      })
-    }
+			const card = state.data.carts.find(cart => cart.id === payload.cartId)
+			if (card) {
+				card.products = card.products.filter(product => product.id !== payload.productId)
+			}
+		}
   },
 
   extraReducers:(builder) => {
-      builder
-
+    builder
     .addCase(getAsyncCart.pending,(state)=>{
       state.status = 'pending'
     })
-
     .addCase(getAsyncCart.fulfilled,(_,action)=>{
       return {
         error:null,
@@ -40,7 +39,6 @@ const cartsSlice =  createSlice({
         data:action.payload
       }
     })
-
     .addCase(getAsyncCart.rejected,(state,{error})=>{
       state.status = 'rejected'
       state.error = {message:error.message || 'check your internet connection'}

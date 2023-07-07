@@ -8,7 +8,7 @@ return (
 <div className='loader'>
   <h1>Loading...</h1>
   <ContentLoader
-    speed={.4}
+    speed={.5}
     width={1200}
     height={800}
     viewBox="0 0 1200 800"

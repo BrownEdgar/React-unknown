@@ -2,14 +2,14 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios"
 
 const initialcartsValue = {
-  data:[],
-  status:'pending',
-  error:null
+	data: [],
+	status: 'pending',
+	error: null
 }
 
-export const getAsyncCart = createAsyncThunk('cart/getAsyncCart',async(url) =>{
-  const response = await axios.get(url)
-  return response.data
+export const getAsyncCart = createAsyncThunk('cart/getAsyncCart', async (url) => {
+	const response = await axios.get(url)
+	return response.data
 })
 
 const cartsSlice =  createSlice({

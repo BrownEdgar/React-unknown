@@ -1,14 +1,24 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-
+import axios from 'axios'
 
 const initialTodosValue = {
     data: [],
     result: 'idle'
 }
 
-export const getAsyncTodos = createAsyncThunk('todos/getAsyncTodos', async (url) => {
-    const response = await axios.getAsyncTodos(url)
-    return response.data
+export const getAsyncTodos = createAsyncThunk('todos/getAsyncTodos', async (url, {rejectWithValue }) => {
+
+	try {
+		const response = await axios.get(url);
+		return response.data
+	} catch (error) {
+		return rejectWithValue({
+			errorMessage: error.message,
+			time: new Date().toLocaleTimeString 
+		})
+	}
+ 
+   
 }) 
 
 const todosSlice = createSlice({
@@ -23,13 +33,21 @@ const todosSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
+    
         .addCase(getAsyncTodos.pending, (state, action) => {
-            state.status = 'pending'
+					
+					state.status = 'pending'
+            state.data = action.payload
         })
         .addCase(getAsyncTodos.fulfilled, (state, action) => {
+				
             state.status = 'success'
-            state.data.push(action.payload)
+            state.data = action.payload
         })
+					.addCase(getAsyncTodos.rejected, (state, action) => {
+						console.log('Erroraction: ', action)
+						state.status = 'rejected'
+					})
     }
 })
 

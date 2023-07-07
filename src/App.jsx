@@ -7,11 +7,10 @@ import { getAsyncTodos, addTodos } from './store/features/todos/todosSlice'
 export default function App() {
   const todos = useSelector(state => state.todos) 
   const dispatch = useDispatch()
-  console.log(todos);
+
 
   useEffect(() => {
-    const todosArray = dispatch(getAsyncTodos('https://jsonplaceholder.typicode.com/todos'))
-    console.log(todosArray);
+   dispatch(getAsyncTodos('https://jsonplholder.typicode.com/tdos'))
   },[])
 
   const handleSubmit = (e) => {
@@ -29,6 +28,9 @@ export default function App() {
         <input id='title'/>
         <button type='submit'>add todo</button>
       </form>
+			<pre>
+				{JSON.stringify(todos,null,1)}
+			</pre>
     </div>
   )
 }

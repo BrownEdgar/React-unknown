@@ -1,14 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux'
-
-
+import { useEffect } from 'react';
+import { addUser } from './app/features/test/testSlice'
+import { addTodos, getAsyncTodos } from './app/features/todos/todosSlice'
 
 import './App.css'
-import { addUser } from './app/features/test/testSlice'
-import { addTodos } from './app/features/todos/todosSlice'
 
 function App() {
 
-	const users = useSelector(state => state.test)
+	const users = useSelector(state => state.todos)
 	const dispatch = useDispatch()
 	const handleSubmit = (e) => {  
 		e.preventDefault();
@@ -26,6 +25,11 @@ function App() {
 		))
 	}
 
+	useEffect(() => {
+		dispatch(getAsyncTodos('https://jsonplaceholder.typicode.com/todos'))
+	}, [])
+	
+
 	return (
 		<>
 			<div>
@@ -38,7 +42,7 @@ function App() {
 						<>
 						<button onClick={addTodo}>Add</button>
 							<pre>
-								{JSON.stringify(users, null, 1)}
+								{JSON.stringify(users.data, null, 1)}
 							</pre>
 						</>
 		

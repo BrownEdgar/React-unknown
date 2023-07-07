@@ -9,6 +9,7 @@ const initialTodosValue = {
 export const getAsyncTodos = createAsyncThunk('todos/getAsyncTodos', async (url) => {
 	const response = await axios.get(url)
 	return response.data;
+	
 })
 
 const todosSlice = createSlice({

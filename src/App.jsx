@@ -9,10 +9,10 @@ export default function App() {
 
 	useEffect(() => {
 		dispatch(getTodos());
-	  }, []);
+	}, []);
 
 
-	  const handleSubmit = (e) => {
+const handleSubmit = (e) => {
 		e.preventDefault()
 		const {userId, userTitle} = e.target
 		
@@ -21,30 +21,34 @@ export default function App() {
 			title: userTitle.value
 		}
 		dispatch(addTodo(user))
-	  }
+	}
 
-	  return (
+	return (
 		<div className='container'>
 			<form onSubmit={handleSubmit}>
 				<input type="text" placeholder='Write adding id' name="userId"/>
-				<input type="text"  placeholder='Write adding Title' name="userTitle"/>
+				<input type="text"placeholder='Write adding Title' name="userTitle"/>
 				<button type='submit'>Add</button>
 			</form>
-		  {todos.status === "pending" ? (
+		{todos.status === "pending" ? (
 			<h1>Loading....</h1>
-		  ) : (
+		) : (
 			<ul>
-			  {todos.data.map((elem, index) => (
-				<li key={index}>
-				  <span>Id : {elem.id}</span>
-				  <span>Title : {elem.title}</span>
+			{todos.data.map((elem) => (
+				<li key={elem.id}>
+				<span>Id : {elem.id}</span>
+				<span>Title : {elem.title}</span>
+					<span>Title : {elem.completed.toString()}</span>
 				</li>
-			  ))}
+			))}
 			</ul>
-		  )}
+		)}
 	</div>
 );
 }
+
+
+
 
 
 
@@ -105,24 +109,24 @@ export default function App() {
 
 // 	return (
 // 		<div className='container'>
-// 		  {sel.carts.status === "pending" ? (
+// 		{sel.carts.status === "pending" ? (
 // 			<h1>Loading....</h1>
-// 		  ) : (
+// 		) : (
 // 			<div className='container'>
-// 			  {sel.carts.addCarts.map(cart => (
+// 			{sel.carts.addCarts.map(cart => (
 // 				<div key={cart.id} className='div'>
-// 				  {cart.products.map(product => (
-// 					  <div key={product.id} className='cart-item'>
+// 				{cart.products.map(product => (
+// 					<div key={product.id} className='cart-item'>
 // 						<span className='span_delete' onClick={() => handleDeleteFunc(cart.id)}><TiDeleteOutline/></span>
-// 					  <p className='cart-title'>Title : {product.title}</p>
-// 					  <p className='cart-price'>Price : {product.price}</p>
-// 					  <p className='cart-total'>Total : {product.total}</p>
+// 					<p className='cart-title'>Title : {product.title}</p>
+// 					<p className='cart-price'>Price : {product.price}</p>
+// 					<p className='cart-total'>Total : {product.total}</p>
 // 					</div>
-// 				  ))}
+// 				))}
 // 				</div>
-// 			  ))}
+// 			))}
 // 			</div>
-// 		  )}
+// 		)}
 // 		</div>
-// 	  );
+// 	);
 // }

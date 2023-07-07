@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 export const getTodos = createAsyncThunk('carts/getTodos', async () => {
-    const todo = await axios.get("https://jsonplaceholder.typicode.com/todos")
+    const todo = await axios.get("https://jsonplaceholder.typicode.com/todos?_limit=6")
     return todo.data
 })
 
@@ -20,14 +20,14 @@ const todoSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-          .addCase(getTodos.pending, (state, action) => {
+          .addCase(getTodos.pending, (state) => {
             state.status = 'pending';
           })
           .addCase(getTodos.fulfilled, (state, action) => {
             state.status = 'succeeded';
             state.data = action.payload;
           })
-          .addCase(getTodos.rejected, (state, action) => {
+          .addCase(getTodos.rejected, (state) => {
             state.status = 'failed';
           });
       }

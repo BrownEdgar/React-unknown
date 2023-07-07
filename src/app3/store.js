@@ -7,9 +7,10 @@ const checkUserTitle = (store) => (next) => (action) => {
     if(action.type === "todos/addTodo") {
         const todo = store.getState().todos
         console.log(todo)
-        const isTitle = todo.data.some(user => user.title === action.payload.title) 
-        const isId = todo.data.some(user => user.id === action.payload.id)
-        if(isTitle || isId) return alert("with this id and title is already in the list")
+			const isTitle = todo.data.some(user => user.title === action.payload.title || 
+				user.id === action.payload.id) 
+   
+        if(isTitle) return alert("with this id or title is already in the list")
     }
     next(action)
 }

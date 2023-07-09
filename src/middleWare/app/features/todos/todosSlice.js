@@ -3,7 +3,7 @@ import axios from "axios"
 
 const initialtodosValue = {
   data:[],
-  status:'pending',
+  status:"pending",
   error:null
 }
 
@@ -16,9 +16,9 @@ export const getAsyncCart = createAsyncThunk('todos/getAsyncCart', async (url) =
     name: 'todos',
     initialState: initialtodosValue,
     reducers: {
-      addTodos: (state, { payload }) => {
+      addTodos: (state, {payload}) => {
         state.data.push(payload);
-      },
+      }
     },
   extraReducers: (builder) => {
     builder

@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client'
-import App from './middleWare/App'
+import App from './secondMiddleware/App'
 import { Provider } from 'react-redux'
-import store from './middleWare/app/store'
+import store from './secondMiddleware/app/store'
 import './index.css'
 
 

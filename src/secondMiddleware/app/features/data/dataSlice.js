@@ -33,4 +33,4 @@ const dataSlice = createSlice({
 })
 
 export default dataSlice.reducer;
-  export const { addData,addDate } = dataSlice.actions
+  export const { addData } = dataSlice.actions

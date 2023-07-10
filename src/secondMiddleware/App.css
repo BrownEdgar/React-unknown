@@ -1,47 +1,105 @@
+body{
+  background-color: #1f2029;
+}
+
 .App {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 15px;
-  margin: 0 60px;
-}
-
-form {
-  display: flex;
   flex-direction: column;
-  gap: 5px;
-  margin: 20px;
+  align-items: center;
+  margin: 10px auto;
 }
 
-input[type="text"] {
-  outline: none;
-  padding: 5px;
+.form {
+  width: 400px;
+  background-color: #2a2b38;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  box-shadow: inset 0 0 5px #ffeba7;
+}
+
+.form input {
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
   margin-bottom: 10px;
-  border: 2px solid #ccc;
-  border-radius: 6px;
+  border: 1px solid #51525e;
+  border-radius: 4px;
+  background-color: #1f2029;
+  color: #ffeba7;
   font-size: 16px;
+  outline: none;
 }
 
-input[type="submit"] {
-  padding: 5px 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  font-size: 18px;
+.form input[type="submit"] {
+  color: #89898d;
+  font-weight: 700;
   cursor: pointer;
+  transition: .3s;
+  border: 1px solid #51525e;
+}
+
+.form input[type="submit"]:hover {
+  box-shadow: 0 0 10px #ffeba7;
+  border: 1px solid #ffeba7;
+  color: #ffeba7;
+  transition: .3s;
+}
+
+input {
+  transition: .5s;
+  caret-color: #ffeba7
+}
+
+input[type="text"]:focus::placeholder {
+  color: #ffeba7;
+}
+
+input:focus {
+  box-shadow: 0 0 10px #ffeba7;
+  border: 1px solid #ffeba7;
+  transition: .3s;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
 }
 
 .item {
-  width: 30%;
-  height: 150px;
-  padding: 12px;
-  margin-bottom: 10px;
-  background-color: #f8f8f8;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  transition: .4s;
+  cursor: pointer;
+  width: 300px;
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid #51525e;
 }
-.info-group{
-  color: rgb(0, 131, 0);
-  font-size: 17px;
+
+.item:hover {
+  box-shadow: 0 0 10px #ffeba7;
+  border: 1px solid #ffeba7;
+  transform: scale(1.1);
+  transition: .4s;
+}
+
+.item-list span {
+  color:aqua;
+  font-weight: 600;
+}
+
+.item-list h3 {
+  color: #ffeba7;
+  margin-bottom: 10px;
+}
+
+.item-list p {
+  color: rgb(1, 209, 209);
+  margin-bottom: 5px;
+}
+
+input:-webkit-autofill { 
+  -webkit-text-fill-color: #ffeba7;
+  transition: background-color 5000s ease-in-out 0s;
 }

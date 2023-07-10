@@ -11,7 +11,7 @@ const addDate = () => (next) => (action)=>{
 const checkId = (store) => (next) => (action) =>{
   if (action.type === 'data/addData') {
     const data = store.getState().data
-    const isExist = data.some(item => item.id == action.payload.id)
+    const isExist = data.some(item => item.id === action.payload.id)
     isExist && (action.payload.id = String(Date.now()).slice(8));
   }
   next(action)

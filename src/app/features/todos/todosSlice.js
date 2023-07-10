@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from 'axios'
+import { my_action } from "../users/usersSlice"
 const initialTodosValue = {
 	data: [],
 	status: 'idle',
@@ -11,6 +12,8 @@ export const getAsyncTodos = createAsyncThunk('todos/getAsyncTodos', async (url)
 	return response.data;
 	
 })
+
+
 
 const todosSlice = createSlice({
 	name: 'todos',
@@ -56,6 +59,10 @@ const todosSlice = createSlice({
 		},
 		[getAsyncTodos.rejected]: (state) => {
 			state.status = 'failure'
+		},
+		[my_action]: (state, { payload }) => {
+	
+			state.error = payload.todoError
 		},
 
 	}

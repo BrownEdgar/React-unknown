@@ -1,48 +1,48 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { useEffect } from 'react';
-import { getTodos, addTodo } from './app3/features/todoSlice/todoSlice';
+import { addUser } from './app4/userSlice/userSlice';
 import './App.css'
 
 export default function App() {
-	const todos = useSelector(state => state.todos)
+	const users = useSelector(state => state.user)
 	const dispatch = useDispatch()
-
-	useEffect(() => {
-		dispatch(getTodos());
-	}, []);
-
 
 const handleSubmit = (e) => {
 		e.preventDefault()
-		const {userId, userTitle} = e.target
+		const {userId, userName, userAddress, userPhone, userEmail} = e.target
 		
 		const user = {
 			id: userId.value,
-			title: userTitle.value
+			name: userName.value,
+			contact : {
+				address: userAddress.value,
+				phone: userPhone.value,
+				email: userEmail.value
+			},
+			date: new Date().toLocaleDateString().toString()
 		}
-		dispatch(addTodo(user))
+		dispatch(addUser(user))
 	}
-
 	return (
 		<div className='container'>
 			<form onSubmit={handleSubmit}>
 				<input type="text" placeholder='Write adding id' name="userId"/>
-				<input type="text"placeholder='Write adding Title' name="userTitle"/>
+				<input type="text"placeholder='Write adding username' name="userName"/>
+				<input type="text"placeholder='Write adding user address' name="userAddress"/>
+				<input type="text"placeholder='Write adding user phone' name="userPhone"/>
+				<input type="email" placeholder='Write adding user email' name="userEmail"/>
 				<button type='submit'>Add</button>
 			</form>
-		{todos.status === "pending" ? (
-			<h1>Loading....</h1>
-		) : (
-			<ul>
-			{todos.data.map((elem) => (
-				<li key={elem.id}>
-				<span>Id : {elem.id}</span>
-				<span>Title : {elem.title}</span>
-					<span>Title : {elem.completed.toString()}</span>
-				</li>
-			))}
-			</ul>
-		)}
+			{users.map(elem => {
+				return <ul key={elem.id}>
+					<li>User id : {elem.id}</li>
+					<li>User name : {elem.name}</li>
+					<li>User address : {elem.contact.address}</li>
+					<li>User phone : {elem.contact.phone}</li>
+					<li>User email : {elem.contact.email}</li>
+					<li>User date: {elem.date}</li>
+				</ul>
+			})}
+		
 	</div>
 );
 }
@@ -129,4 +129,54 @@ const handleSubmit = (e) => {
 // 		)}
 // 		</div>
 // 	);
+// }
+
+//////////////////////////////////////////////////////////////////////////////////////
+// import { useSelector, useDispatch } from 'react-redux'
+// import { useEffect } from 'react';
+// import { getTodos, addTodo } from './app3/features/todoSlice/todoSlice';
+// import './App.css'
+
+// export default function App() {
+// 	const todos = useSelector(state => state.todos)
+// 	const dispatch = useDispatch()
+
+// 	useEffect(() => {
+// 		dispatch(getTodos());
+// 	}, []);
+
+
+// const handleSubmit = (e) => {
+// 		e.preventDefault()
+// 		const {userId, userTitle} = e.target
+		
+// 		const user = {
+// 			id: userId.value,
+// 			title: userTitle.value
+// 		}
+// 		dispatch(addTodo(user))
+// 	}
+
+// 	return (
+// 		<div className='container'>
+// 			<form onSubmit={handleSubmit}>
+// 				<input type="text" placeholder='Write adding id' name="userId"/>
+// 				<input type="text"placeholder='Write adding Title' name="userTitle"/>
+// 				<button type='submit'>Add</button>
+// 			</form>
+// 		{todos.status === "pending" ? (
+// 			<h1>Loading....</h1>
+// 		) : (
+// 			<ul>
+// 			{todos.data.map((elem) => (
+// 				<li key={elem.id}>
+// 				<span>Id : {elem.id}</span>
+// 				<span>Title : {elem.title}</span>
+// 					<span>Title : {elem.completed.toString()}</span>
+// 				</li>
+// 			))}
+// 			</ul>
+// 		)}
+// 	</div>
+// );
 // }

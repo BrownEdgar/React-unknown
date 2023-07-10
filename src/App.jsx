@@ -1,34 +1,19 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { useEffect } from 'react';
-import { addUser } from './app/features/test/testSlice'
-import { addTodos, getAsyncTodos } from './app/features/todos/todosSlice'
+import { useEffect, useState } from 'react';
+
+import classNames from 'classnames'
+import {   changeFilter,  getAsyncTodos, memoTodos, toggleTodo,  } from './app/features/todos/todosSlice'
+
 
 import './App.css'
-import { my_action } from './app/features/users/usersSlice';
 
 function App() {
+	const [count, setCount] = useState(0)
 
-	const users = useSelector(state => state.todos)
+	const todos = useSelector(memoTodos)
 	const dispatch = useDispatch()
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		const { username } = e.target;
-		const user = {
-			name: username.value
-		}
-		dispatch(addUser(user))
-	}
-	const addTodo = () => {
-		dispatch(addTodos({
-			id: 1,
-			name: 'Jhon'
-		},
-		))
-	}
 
-	const changeName = () => {
-		dispatch(my_action({ username: "Lilith" , todoError: "Lorem, ipsum dolor."}))
-	}
+
 
 	useEffect(() => {
 		dispatch(getAsyncTodos('https://jsonplaceholder.typicode.com/todos'))
@@ -38,18 +23,30 @@ function App() {
 	return (
 		<>
 			<div>
-				<h1>Hello users</h1>
-				<form onSubmit={handleSubmit}>
-					<input type="text" name="username" />
-					<input type="submit" value='add user' />
-				</form>
-
-				<>
-					<button onClick={addTodo}>Add</button>
-			
-				</>
-				<button onClick={changeName}>change name</button>
-
+				<h1>Hello users {count}</h1>
+				<button onClick={() => setCount(count + 1)}>add count</button>
+				<div className="buttons">
+					<button onClick={()=> dispatch(changeFilter('all'))}>all</button>
+					<button onClick={()=> dispatch(changeFilter('allCompleted'))}>completed</button>
+					<button onClick={()=> dispatch(changeFilter('allUnCompleted'))}>Un-completed</button>
+				</div>
+					<div className="flex">
+					{
+						todos.map(elem => {
+							return (
+								<p key={elem.id} onClick={() => dispatch(toggleTodo(elem.id))}>
+									<span className={
+										classNames('icon', {
+											red: !elem.completed, 
+											green: elem.completed 
+										})
+									}></span>
+									{elem.title} 
+								</p>
+							)
+						})
+					}
+					</div>
 			</div>
 		</>
 	)
